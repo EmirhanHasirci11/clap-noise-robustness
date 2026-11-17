@@ -1,0 +1,7 @@
+method,condition,top_predicted,share_top3_pct
+zero-shot,white_0dB,"rain (236), water drops (156), vacuum cleaner (117)",25.45
+tip-aug,white_0dB,"rain (149), water drops (93), vacuum cleaner (90)",16.6
+zero-shot,pink_0dB,"rain (231), water drops (82), vacuum cleaner (79)",19.6
+tip-aug,pink_0dB,"rain (166), cat (65), wind (65)",14.8
+zero-shot,brown_0dB,"insects (55), train (53), sea waves (52)",8.0
+tip-aug,brown_0dB,"sea waves (53), train (52), airplane (46)",7.55

@@ -1,0 +1,13 @@
+\begin{tabular}{lrrrrrrrrrrrrrr}
+\toprule
+ & & \multicolumn{4}{c}{white (dB)} & \multicolumn{4}{c}{pink (dB)} & \multicolumn{4}{c}{brown (dB)} & \\
+Method & Clean & 20 & 10 & 5 & 0 & 20 & 10 & 5 & 0 & 20 & 10 & 5 & 0 & Noisy avg \\
+\midrule
+Zero-shot & 92.3 & 90.8 & 86.5 & 80.2 & 66.4 & 91.3 & 87.1 & 81.9 & 68.8 & 92.3 & 93.0 & 92.8 & 92.5 & 85.3 \\
+Tip (clean cache) & 93.6 & 92.0 & 87.8 & 81.8 & 68.1 & 92.6 & 88.5 & 82.8 & 70.2 & 93.8 & 93.8 & 93.6 & 93.6 & 86.5 \\
+Tip (clean+noisy) \textbf{[ours]} & 94.3 & 93.0 & 89.5 & 83.8 & 71.9 & 93.5 & 90.0 & 84.8 & 73.2 & 94.4 & 94.5 & 94.3 & 94.3 & 88.1 \\
+Tip (noisy only) & 93.3 & 92.1 & 88.3 & 82.7 & 70.7 & 92.4 & 88.7 & 83.6 & 72.0 & 93.4 & 93.7 & 93.4 & 93.4 & 87.0 \\
+LP (clean) & \textbf{95.7} & 93.8 & 88.6 & 82.8 & 70.2 & 94.4 & 89.5 & 83.5 & 70.6 & \textbf{95.5} & \textbf{95.6} & 95.4 & 95.2 & 87.9 \\
+LP (clean+noisy) & 95.5 & \textbf{94.9} & \textbf{92.0} & \textbf{88.5} & \textbf{80.7} & \textbf{94.8} & \textbf{92.2} & \textbf{88.8} & \textbf{79.8} & \textbf{95.5} & \textbf{95.6} & \textbf{95.5} & \textbf{95.4} & 91.1 \\
+\bottomrule
+\end{tabular}

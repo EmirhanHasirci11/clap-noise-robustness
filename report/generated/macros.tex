@@ -1,0 +1,802 @@
+\newcommand{\maintipcleanKoneclean}{92.8}
+\newcommand{\maintipcleanKonewhite}{81.3}
+\newcommand{\maintipcleanKonepink}{82.5}
+\newcommand{\maintipcleanKonebrown}{93.0}
+\newcommand{\maintipcleanKonenoisy}{85.6}
+\newcommand{\maintipaugKoneclean}{93.0}
+\newcommand{\maintipaugKonewhite}{82.0}
+\newcommand{\maintipaugKonepink}{83.0}
+\newcommand{\maintipaugKonebrown}{93.2}
+\newcommand{\maintipaugKonenoisy}{86.1}
+\newcommand{\maintipnoisyonlyKoneclean}{92.8}
+\newcommand{\maintipnoisyonlyKonewhite}{81.5}
+\newcommand{\maintipnoisyonlyKonepink}{82.7}
+\newcommand{\maintipnoisyonlyKonebrown}{93.0}
+\newcommand{\maintipnoisyonlyKonenoisy}{85.7}
+\newcommand{\mainlpcleanKoneclean}{87.1}
+\newcommand{\mainlpcleanKonewhite}{73.8}
+\newcommand{\mainlpcleanKonepink}{74.9}
+\newcommand{\mainlpcleanKonebrown}{87.4}
+\newcommand{\mainlpcleanKonenoisy}{78.7}
+\newcommand{\mainlpaugKoneclean}{87.7}
+\newcommand{\mainlpaugKonewhite}{78.9}
+\newcommand{\mainlpaugKonepink}{79.8}
+\newcommand{\mainlpaugKonebrown}{87.6}
+\newcommand{\mainlpaugKonenoisy}{82.1}
+\newcommand{\maintipcleanKfourclean}{93.6}
+\newcommand{\maintipcleanKfourwhite}{82.4}
+\newcommand{\maintipcleanKfourpink}{83.5}
+\newcommand{\maintipcleanKfourbrown}{93.7}
+\newcommand{\maintipcleanKfournoisy}{86.5}
+\newcommand{\maintipaugKfourclean}{94.3}
+\newcommand{\maintipaugKfourwhite}{84.6}
+\newcommand{\maintipaugKfourpink}{85.4}
+\newcommand{\maintipaugKfourbrown}{94.4}
+\newcommand{\maintipaugKfournoisy}{88.1}
+\newcommand{\maintipnoisyonlyKfourclean}{93.3}
+\newcommand{\maintipnoisyonlyKfourwhite}{83.4}
+\newcommand{\maintipnoisyonlyKfourpink}{84.2}
+\newcommand{\maintipnoisyonlyKfourbrown}{93.5}
+\newcommand{\maintipnoisyonlyKfournoisy}{87.0}
+\newcommand{\mainlpcleanKfourclean}{95.7}
+\newcommand{\mainlpcleanKfourwhite}{83.8}
+\newcommand{\mainlpcleanKfourpink}{84.5}
+\newcommand{\mainlpcleanKfourbrown}{95.4}
+\newcommand{\mainlpcleanKfournoisy}{87.9}
+\newcommand{\mainlpaugKfourclean}{95.5}
+\newcommand{\mainlpaugKfourwhite}{89.0}
+\newcommand{\mainlpaugKfourpink}{88.9}
+\newcommand{\mainlpaugKfourbrown}{95.5}
+\newcommand{\mainlpaugKfournoisy}{91.1}
+\newcommand{\maintipcleanKsixteenclean}{95.6}
+\newcommand{\maintipcleanKsixteenwhite}{84.7}
+\newcommand{\maintipcleanKsixteenpink}{85.6}
+\newcommand{\maintipcleanKsixteenbrown}{95.5}
+\newcommand{\maintipcleanKsixteennoisy}{88.6}
+\newcommand{\maintipaugKsixteenclean}{95.8}
+\newcommand{\maintipaugKsixteenwhite}{87.6}
+\newcommand{\maintipaugKsixteenpink}{87.8}
+\newcommand{\maintipaugKsixteenbrown}{95.7}
+\newcommand{\maintipaugKsixteennoisy}{90.4}
+\newcommand{\maintipnoisyonlyKsixteenclean}{95.0}
+\newcommand{\maintipnoisyonlyKsixteenwhite}{87.5}
+\newcommand{\maintipnoisyonlyKsixteenpink}{87.8}
+\newcommand{\maintipnoisyonlyKsixteenbrown}{95.0}
+\newcommand{\maintipnoisyonlyKsixteennoisy}{90.1}
+\newcommand{\mainlpcleanKsixteenclean}{97.3}
+\newcommand{\mainlpcleanKsixteenwhite}{85.1}
+\newcommand{\mainlpcleanKsixteenpink}{85.9}
+\newcommand{\mainlpcleanKsixteenbrown}{97.0}
+\newcommand{\mainlpcleanKsixteennoisy}{89.3}
+\newcommand{\mainlpaugKsixteenclean}{97.2}
+\newcommand{\mainlpaugKsixteenwhite}{91.3}
+\newcommand{\mainlpaugKsixteenpink}{91.0}
+\newcommand{\mainlpaugKsixteenbrown}{97.1}
+\newcommand{\mainlpaugKsixteennoisy}{93.1}
+\newcommand{\mainalphaedge}{113}
+\newcommand{\mainalphaN}{135}
+\newcommand{\repbestA}{90.95}
+\newcommand{\repfoldbestA}{91.50}
+\newcommand{\repbestB}{91.05}
+\newcommand{\repfoldbestB}{92.50}
+\newcommand{\repbestC}{84.90}
+\newcommand{\repfoldbestC}{85.75}
+\newcommand{\repaudiosetA}{92.30}
+\newcommand{\repfoldaudiosetA}{93.25}
+\newcommand{\repaudiosetB}{91.35}
+\newcommand{\repfoldaudiosetB}{92.25}
+\newcommand{\repaudiosetC}{82.05}
+\newcommand{\repfoldaudiosetC}{82.75}
+\newcommand{\repfusionA}{91.50}
+\newcommand{\repfoldfusionA}{91.75}
+\newcommand{\repfusionB}{91.95}
+\newcommand{\repfoldfusionB}{91.00}
+\newcommand{\repfusionC}{83.00}
+\newcommand{\repfoldfusionC}{85.00}
+\newcommand{\repaudiosetfusionA}{90.80}
+\newcommand{\repfoldaudiosetfusionA}{92.75}
+\newcommand{\repaudiosetfusionB}{88.30}
+\newcommand{\repfoldaudiosetfusionB}{90.25}
+\newcommand{\repaudiosetfusionC}{85.20}
+\newcommand{\repfoldaudiosetfusionC}{87.75}
+\newcommand{\acczsKoneclean}{92.3}
+\newcommand{\acczsKonenoisy}{85.3}
+\newcommand{\acczsKonewhite}{81.0}
+\newcommand{\acczsKonepink}{82.3}
+\newcommand{\acczsKonebrown}{92.7}
+\newcommand{\acczsKonewhitetwentydb}{90.8}
+\newcommand{\acczsKonewhitetendb}{86.5}
+\newcommand{\acczsKonewhitefivedb}{80.2}
+\newcommand{\acczsKonewhitezerodb}{66.4}
+\newcommand{\acczsKonepinktwentydb}{91.3}
+\newcommand{\acczsKonepinktendb}{87.1}
+\newcommand{\acczsKonepinkfivedb}{81.9}
+\newcommand{\acczsKonepinkzerodb}{68.8}
+\newcommand{\acczsKonebrowntwentydb}{92.3}
+\newcommand{\acczsKonebrowntendb}{93.0}
+\newcommand{\acczsKonebrownfivedb}{92.8}
+\newcommand{\acczsKonebrownzerodb}{92.5}
+\newcommand{\acctipcleanKoneclean}{92.8}
+\newcommand{\acctipcleanKonenoisy}{85.6}
+\newcommand{\acctipcleanKonewhite}{81.3}
+\newcommand{\acctipcleanKonepink}{82.5}
+\newcommand{\acctipcleanKonebrown}{93.0}
+\newcommand{\acctipcleanKonewhitetwentydb}{91.1}
+\newcommand{\acctipcleanKonewhitetendb}{86.8}
+\newcommand{\acctipcleanKonewhitefivedb}{80.6}
+\newcommand{\acctipcleanKonewhitezerodb}{66.7}
+\newcommand{\acctipcleanKonepinktwentydb}{91.7}
+\newcommand{\acctipcleanKonepinktendb}{87.3}
+\newcommand{\acctipcleanKonepinkfivedb}{82.1}
+\newcommand{\acctipcleanKonepinkzerodb}{69.1}
+\newcommand{\acctipcleanKonebrowntwentydb}{92.7}
+\newcommand{\acctipcleanKonebrowntendb}{93.2}
+\newcommand{\acctipcleanKonebrownfivedb}{93.0}
+\newcommand{\acctipcleanKonebrownzerodb}{92.9}
+\newcommand{\acctipaugKoneclean}{93.0}
+\newcommand{\acctipaugKonenoisy}{86.1}
+\newcommand{\acctipaugKonewhite}{82.0}
+\newcommand{\acctipaugKonepink}{83.0}
+\newcommand{\acctipaugKonebrown}{93.2}
+\newcommand{\acctipaugKonewhitetwentydb}{91.5}
+\newcommand{\acctipaugKonewhitetendb}{87.4}
+\newcommand{\acctipaugKonewhitefivedb}{81.2}
+\newcommand{\acctipaugKonewhitezerodb}{67.7}
+\newcommand{\acctipaugKonepinktwentydb}{91.9}
+\newcommand{\acctipaugKonepinktendb}{87.7}
+\newcommand{\acctipaugKonepinkfivedb}{82.5}
+\newcommand{\acctipaugKonepinkzerodb}{70.1}
+\newcommand{\acctipaugKonebrowntwentydb}{93.0}
+\newcommand{\acctipaugKonebrowntendb}{93.4}
+\newcommand{\acctipaugKonebrownfivedb}{93.2}
+\newcommand{\acctipaugKonebrownzerodb}{93.1}
+\newcommand{\acctipnoisyonlyKoneclean}{92.8}
+\newcommand{\acctipnoisyonlyKonenoisy}{85.7}
+\newcommand{\acctipnoisyonlyKonewhite}{81.5}
+\newcommand{\acctipnoisyonlyKonepink}{82.7}
+\newcommand{\acctipnoisyonlyKonebrown}{93.0}
+\newcommand{\acctipnoisyonlyKonewhitetwentydb}{91.1}
+\newcommand{\acctipnoisyonlyKonewhitetendb}{87.0}
+\newcommand{\acctipnoisyonlyKonewhitefivedb}{80.9}
+\newcommand{\acctipnoisyonlyKonewhitezerodb}{67.2}
+\newcommand{\acctipnoisyonlyKonepinktwentydb}{91.7}
+\newcommand{\acctipnoisyonlyKonepinktendb}{87.5}
+\newcommand{\acctipnoisyonlyKonepinkfivedb}{82.2}
+\newcommand{\acctipnoisyonlyKonepinkzerodb}{69.4}
+\newcommand{\acctipnoisyonlyKonebrowntwentydb}{92.8}
+\newcommand{\acctipnoisyonlyKonebrowntendb}{93.2}
+\newcommand{\acctipnoisyonlyKonebrownfivedb}{93.0}
+\newcommand{\acctipnoisyonlyKonebrownzerodb}{92.8}
+\newcommand{\acclpcleanKoneclean}{87.1}
+\newcommand{\acclpcleanKonenoisy}{78.7}
+\newcommand{\acclpcleanKonewhite}{73.8}
+\newcommand{\acclpcleanKonepink}{74.9}
+\newcommand{\acclpcleanKonebrown}{87.4}
+\newcommand{\acclpcleanKonewhitetwentydb}{84.7}
+\newcommand{\acclpcleanKonewhitetendb}{78.7}
+\newcommand{\acclpcleanKonewhitefivedb}{71.6}
+\newcommand{\acclpcleanKonewhitezerodb}{60.0}
+\newcommand{\acclpcleanKonepinktwentydb}{86.1}
+\newcommand{\acclpcleanKonepinktendb}{80.2}
+\newcommand{\acclpcleanKonepinkfivedb}{73.3}
+\newcommand{\acclpcleanKonepinkzerodb}{60.0}
+\newcommand{\acclpcleanKonebrowntwentydb}{87.6}
+\newcommand{\acclpcleanKonebrowntendb}{87.4}
+\newcommand{\acclpcleanKonebrownfivedb}{87.3}
+\newcommand{\acclpcleanKonebrownzerodb}{87.2}
+\newcommand{\acclpaugKoneclean}{87.7}
+\newcommand{\acclpaugKonenoisy}{82.1}
+\newcommand{\acclpaugKonewhite}{78.9}
+\newcommand{\acclpaugKonepink}{79.8}
+\newcommand{\acclpaugKonebrown}{87.6}
+\newcommand{\acclpaugKonewhitetwentydb}{86.5}
+\newcommand{\acclpaugKonewhitetendb}{82.3}
+\newcommand{\acclpaugKonewhitefivedb}{77.8}
+\newcommand{\acclpaugKonewhitezerodb}{68.9}
+\newcommand{\acclpaugKonepinktwentydb}{86.9}
+\newcommand{\acclpaugKonepinktendb}{83.4}
+\newcommand{\acclpaugKonepinkfivedb}{79.3}
+\newcommand{\acclpaugKonepinkzerodb}{69.6}
+\newcommand{\acclpaugKonebrowntwentydb}{87.4}
+\newcommand{\acclpaugKonebrowntendb}{87.4}
+\newcommand{\acclpaugKonebrownfivedb}{87.8}
+\newcommand{\acclpaugKonebrownzerodb}{87.6}
+\newcommand{\sdzsKoneclean}{1.2}
+\newcommand{\sdtipcleanKoneclean}{1.1}
+\newcommand{\sdtipaugKoneclean}{1.0}
+\newcommand{\sdtipnoisyonlyKoneclean}{1.0}
+\newcommand{\sdlpcleanKoneclean}{2.9}
+\newcommand{\sdlpaugKoneclean}{2.6}
+\newcommand{\acczsKfourclean}{92.3}
+\newcommand{\acczsKfournoisy}{85.3}
+\newcommand{\acczsKfourwhite}{81.0}
+\newcommand{\acczsKfourpink}{82.3}
+\newcommand{\acczsKfourbrown}{92.7}
+\newcommand{\acczsKfourwhitetwentydb}{90.8}
+\newcommand{\acczsKfourwhitetendb}{86.5}
+\newcommand{\acczsKfourwhitefivedb}{80.2}
+\newcommand{\acczsKfourwhitezerodb}{66.4}
+\newcommand{\acczsKfourpinktwentydb}{91.3}
+\newcommand{\acczsKfourpinktendb}{87.1}
+\newcommand{\acczsKfourpinkfivedb}{81.9}
+\newcommand{\acczsKfourpinkzerodb}{68.8}
+\newcommand{\acczsKfourbrowntwentydb}{92.3}
+\newcommand{\acczsKfourbrowntendb}{93.0}
+\newcommand{\acczsKfourbrownfivedb}{92.8}
+\newcommand{\acczsKfourbrownzerodb}{92.5}
+\newcommand{\acctipcleanKfourclean}{93.6}
+\newcommand{\acctipcleanKfournoisy}{86.5}
+\newcommand{\acctipcleanKfourwhite}{82.4}
+\newcommand{\acctipcleanKfourpink}{83.5}
+\newcommand{\acctipcleanKfourbrown}{93.7}
+\newcommand{\acctipcleanKfourwhitetwentydb}{92.0}
+\newcommand{\acctipcleanKfourwhitetendb}{87.8}
+\newcommand{\acctipcleanKfourwhitefivedb}{81.8}
+\newcommand{\acctipcleanKfourwhitezerodb}{68.1}
+\newcommand{\acctipcleanKfourpinktwentydb}{92.6}
+\newcommand{\acctipcleanKfourpinktendb}{88.5}
+\newcommand{\acctipcleanKfourpinkfivedb}{82.8}
+\newcommand{\acctipcleanKfourpinkzerodb}{70.2}
+\newcommand{\acctipcleanKfourbrowntwentydb}{93.8}
+\newcommand{\acctipcleanKfourbrowntendb}{93.8}
+\newcommand{\acctipcleanKfourbrownfivedb}{93.6}
+\newcommand{\acctipcleanKfourbrownzerodb}{93.6}
+\newcommand{\acctipaugKfourclean}{94.3}
+\newcommand{\acctipaugKfournoisy}{88.1}
+\newcommand{\acctipaugKfourwhite}{84.6}
+\newcommand{\acctipaugKfourpink}{85.4}
+\newcommand{\acctipaugKfourbrown}{94.4}
+\newcommand{\acctipaugKfourwhitetwentydb}{93.0}
+\newcommand{\acctipaugKfourwhitetendb}{89.5}
+\newcommand{\acctipaugKfourwhitefivedb}{83.8}
+\newcommand{\acctipaugKfourwhitezerodb}{71.9}
+\newcommand{\acctipaugKfourpinktwentydb}{93.5}
+\newcommand{\acctipaugKfourpinktendb}{90.0}
+\newcommand{\acctipaugKfourpinkfivedb}{84.8}
+\newcommand{\acctipaugKfourpinkzerodb}{73.2}
+\newcommand{\acctipaugKfourbrowntwentydb}{94.4}
+\newcommand{\acctipaugKfourbrowntendb}{94.5}
+\newcommand{\acctipaugKfourbrownfivedb}{94.3}
+\newcommand{\acctipaugKfourbrownzerodb}{94.3}
+\newcommand{\acctipnoisyonlyKfourclean}{93.3}
+\newcommand{\acctipnoisyonlyKfournoisy}{87.0}
+\newcommand{\acctipnoisyonlyKfourwhite}{83.4}
+\newcommand{\acctipnoisyonlyKfourpink}{84.2}
+\newcommand{\acctipnoisyonlyKfourbrown}{93.5}
+\newcommand{\acctipnoisyonlyKfourwhitetwentydb}{92.1}
+\newcommand{\acctipnoisyonlyKfourwhitetendb}{88.3}
+\newcommand{\acctipnoisyonlyKfourwhitefivedb}{82.7}
+\newcommand{\acctipnoisyonlyKfourwhitezerodb}{70.7}
+\newcommand{\acctipnoisyonlyKfourpinktwentydb}{92.4}
+\newcommand{\acctipnoisyonlyKfourpinktendb}{88.7}
+\newcommand{\acctipnoisyonlyKfourpinkfivedb}{83.6}
+\newcommand{\acctipnoisyonlyKfourpinkzerodb}{72.0}
+\newcommand{\acctipnoisyonlyKfourbrowntwentydb}{93.4}
+\newcommand{\acctipnoisyonlyKfourbrowntendb}{93.7}
+\newcommand{\acctipnoisyonlyKfourbrownfivedb}{93.4}
+\newcommand{\acctipnoisyonlyKfourbrownzerodb}{93.4}
+\newcommand{\acclpcleanKfourclean}{95.7}
+\newcommand{\acclpcleanKfournoisy}{87.9}
+\newcommand{\acclpcleanKfourwhite}{83.8}
+\newcommand{\acclpcleanKfourpink}{84.5}
+\newcommand{\acclpcleanKfourbrown}{95.4}
+\newcommand{\acclpcleanKfourwhitetwentydb}{93.8}
+\newcommand{\acclpcleanKfourwhitetendb}{88.6}
+\newcommand{\acclpcleanKfourwhitefivedb}{82.8}
+\newcommand{\acclpcleanKfourwhitezerodb}{70.2}
+\newcommand{\acclpcleanKfourpinktwentydb}{94.4}
+\newcommand{\acclpcleanKfourpinktendb}{89.5}
+\newcommand{\acclpcleanKfourpinkfivedb}{83.5}
+\newcommand{\acclpcleanKfourpinkzerodb}{70.6}
+\newcommand{\acclpcleanKfourbrowntwentydb}{95.5}
+\newcommand{\acclpcleanKfourbrowntendb}{95.6}
+\newcommand{\acclpcleanKfourbrownfivedb}{95.4}
+\newcommand{\acclpcleanKfourbrownzerodb}{95.2}
+\newcommand{\acclpaugKfourclean}{95.5}
+\newcommand{\acclpaugKfournoisy}{91.1}
+\newcommand{\acclpaugKfourwhite}{89.0}
+\newcommand{\acclpaugKfourpink}{88.9}
+\newcommand{\acclpaugKfourbrown}{95.5}
+\newcommand{\acclpaugKfourwhitetwentydb}{94.9}
+\newcommand{\acclpaugKfourwhitetendb}{92.0}
+\newcommand{\acclpaugKfourwhitefivedb}{88.5}
+\newcommand{\acclpaugKfourwhitezerodb}{80.7}
+\newcommand{\acclpaugKfourpinktwentydb}{94.8}
+\newcommand{\acclpaugKfourpinktendb}{92.2}
+\newcommand{\acclpaugKfourpinkfivedb}{88.8}
+\newcommand{\acclpaugKfourpinkzerodb}{79.8}
+\newcommand{\acclpaugKfourbrowntwentydb}{95.5}
+\newcommand{\acclpaugKfourbrowntendb}{95.6}
+\newcommand{\acclpaugKfourbrownfivedb}{95.5}
+\newcommand{\acclpaugKfourbrownzerodb}{95.4}
+\newcommand{\sdzsKfourclean}{1.2}
+\newcommand{\sdtipcleanKfourclean}{0.8}
+\newcommand{\sdtipaugKfourclean}{0.8}
+\newcommand{\sdtipnoisyonlyKfourclean}{0.7}
+\newcommand{\sdlpcleanKfourclean}{1.3}
+\newcommand{\sdlpaugKfourclean}{1.0}
+\newcommand{\acczsKsixteenclean}{92.3}
+\newcommand{\acczsKsixteennoisy}{85.3}
+\newcommand{\acczsKsixteenwhite}{81.0}
+\newcommand{\acczsKsixteenpink}{82.3}
+\newcommand{\acczsKsixteenbrown}{92.7}
+\newcommand{\acczsKsixteenwhitetwentydb}{90.8}
+\newcommand{\acczsKsixteenwhitetendb}{86.5}
+\newcommand{\acczsKsixteenwhitefivedb}{80.2}
+\newcommand{\acczsKsixteenwhitezerodb}{66.4}
+\newcommand{\acczsKsixteenpinktwentydb}{91.3}
+\newcommand{\acczsKsixteenpinktendb}{87.1}
+\newcommand{\acczsKsixteenpinkfivedb}{81.9}
+\newcommand{\acczsKsixteenpinkzerodb}{68.8}
+\newcommand{\acczsKsixteenbrowntwentydb}{92.3}
+\newcommand{\acczsKsixteenbrowntendb}{93.0}
+\newcommand{\acczsKsixteenbrownfivedb}{92.8}
+\newcommand{\acczsKsixteenbrownzerodb}{92.5}
+\newcommand{\acctipcleanKsixteenclean}{95.6}
+\newcommand{\acctipcleanKsixteennoisy}{88.6}
+\newcommand{\acctipcleanKsixteenwhite}{84.7}
+\newcommand{\acctipcleanKsixteenpink}{85.6}
+\newcommand{\acctipcleanKsixteenbrown}{95.5}
+\newcommand{\acctipcleanKsixteenwhitetwentydb}{94.2}
+\newcommand{\acctipcleanKsixteenwhitetendb}{89.8}
+\newcommand{\acctipcleanKsixteenwhitefivedb}{83.7}
+\newcommand{\acctipcleanKsixteenwhitezerodb}{71.3}
+\newcommand{\acctipcleanKsixteenpinktwentydb}{94.5}
+\newcommand{\acctipcleanKsixteenpinktendb}{90.3}
+\newcommand{\acctipcleanKsixteenpinkfivedb}{85.2}
+\newcommand{\acctipcleanKsixteenpinkzerodb}{72.4}
+\newcommand{\acctipcleanKsixteenbrowntwentydb}{95.8}
+\newcommand{\acctipcleanKsixteenbrowntendb}{95.7}
+\newcommand{\acctipcleanKsixteenbrownfivedb}{95.4}
+\newcommand{\acctipcleanKsixteenbrownzerodb}{95.3}
+\newcommand{\acctipaugKsixteenclean}{95.8}
+\newcommand{\acctipaugKsixteennoisy}{90.4}
+\newcommand{\acctipaugKsixteenwhite}{87.6}
+\newcommand{\acctipaugKsixteenpink}{87.8}
+\newcommand{\acctipaugKsixteenbrown}{95.7}
+\newcommand{\acctipaugKsixteenwhitetwentydb}{94.7}
+\newcommand{\acctipaugKsixteenwhitetendb}{91.3}
+\newcommand{\acctipaugKsixteenwhitefivedb}{86.9}
+\newcommand{\acctipaugKsixteenwhitezerodb}{77.5}
+\newcommand{\acctipaugKsixteenpinktwentydb}{94.8}
+\newcommand{\acctipaugKsixteenpinktendb}{92.2}
+\newcommand{\acctipaugKsixteenpinkfivedb}{87.8}
+\newcommand{\acctipaugKsixteenpinkzerodb}{76.5}
+\newcommand{\acctipaugKsixteenbrowntwentydb}{95.8}
+\newcommand{\acctipaugKsixteenbrowntendb}{95.9}
+\newcommand{\acctipaugKsixteenbrownfivedb}{95.6}
+\newcommand{\acctipaugKsixteenbrownzerodb}{95.5}
+\newcommand{\acctipnoisyonlyKsixteenclean}{95.0}
+\newcommand{\acctipnoisyonlyKsixteennoisy}{90.1}
+\newcommand{\acctipnoisyonlyKsixteenwhite}{87.5}
+\newcommand{\acctipnoisyonlyKsixteenpink}{87.8}
+\newcommand{\acctipnoisyonlyKsixteenbrown}{95.0}
+\newcommand{\acctipnoisyonlyKsixteenwhitetwentydb}{94.2}
+\newcommand{\acctipnoisyonlyKsixteenwhitetendb}{91.4}
+\newcommand{\acctipnoisyonlyKsixteenwhitefivedb}{86.9}
+\newcommand{\acctipnoisyonlyKsixteenwhitezerodb}{77.6}
+\newcommand{\acctipnoisyonlyKsixteenpinktwentydb}{94.4}
+\newcommand{\acctipnoisyonlyKsixteenpinktendb}{91.9}
+\newcommand{\acctipnoisyonlyKsixteenpinkfivedb}{87.6}
+\newcommand{\acctipnoisyonlyKsixteenpinkzerodb}{77.1}
+\newcommand{\acctipnoisyonlyKsixteenbrowntwentydb}{95.0}
+\newcommand{\acctipnoisyonlyKsixteenbrowntendb}{95.2}
+\newcommand{\acctipnoisyonlyKsixteenbrownfivedb}{95.1}
+\newcommand{\acctipnoisyonlyKsixteenbrownzerodb}{94.8}
+\newcommand{\acclpcleanKsixteenclean}{97.3}
+\newcommand{\acclpcleanKsixteennoisy}{89.3}
+\newcommand{\acclpcleanKsixteenwhite}{85.1}
+\newcommand{\acclpcleanKsixteenpink}{85.9}
+\newcommand{\acclpcleanKsixteenbrown}{97.0}
+\newcommand{\acclpcleanKsixteenwhitetwentydb}{95.4}
+\newcommand{\acclpcleanKsixteenwhitetendb}{89.9}
+\newcommand{\acclpcleanKsixteenwhitefivedb}{84.0}
+\newcommand{\acclpcleanKsixteenwhitezerodb}{71.3}
+\newcommand{\acclpcleanKsixteenpinktwentydb}{95.7}
+\newcommand{\acclpcleanKsixteenpinktendb}{91.2}
+\newcommand{\acclpcleanKsixteenpinkfivedb}{84.5}
+\newcommand{\acclpcleanKsixteenpinkzerodb}{72.0}
+\newcommand{\acclpcleanKsixteenbrowntwentydb}{97.1}
+\newcommand{\acclpcleanKsixteenbrowntendb}{97.1}
+\newcommand{\acclpcleanKsixteenbrownfivedb}{97.0}
+\newcommand{\acclpcleanKsixteenbrownzerodb}{96.7}
+\newcommand{\acclpaugKsixteenclean}{97.2}
+\newcommand{\acclpaugKsixteennoisy}{93.1}
+\newcommand{\acclpaugKsixteenwhite}{91.3}
+\newcommand{\acclpaugKsixteenpink}{91.0}
+\newcommand{\acclpaugKsixteenbrown}{97.1}
+\newcommand{\acclpaugKsixteenwhitetwentydb}{96.2}
+\newcommand{\acclpaugKsixteenwhitetendb}{93.8}
+\newcommand{\acclpaugKsixteenwhitefivedb}{90.7}
+\newcommand{\acclpaugKsixteenwhitezerodb}{84.7}
+\newcommand{\acclpaugKsixteenpinktwentydb}{96.6}
+\newcommand{\acclpaugKsixteenpinktendb}{94.1}
+\newcommand{\acclpaugKsixteenpinkfivedb}{90.8}
+\newcommand{\acclpaugKsixteenpinkzerodb}{82.5}
+\newcommand{\acclpaugKsixteenbrowntwentydb}{97.1}
+\newcommand{\acclpaugKsixteenbrowntendb}{97.2}
+\newcommand{\acclpaugKsixteenbrownfivedb}{97.2}
+\newcommand{\acclpaugKsixteenbrownzerodb}{97.0}
+\newcommand{\sdzsKsixteenclean}{1.2}
+\newcommand{\sdtipcleanKsixteenclean}{0.6}
+\newcommand{\sdtipaugKsixteenclean}{0.7}
+\newcommand{\sdtipnoisyonlyKsixteenclean}{0.5}
+\newcommand{\sdlpcleanKsixteenclean}{0.5}
+\newcommand{\sdlpaugKsixteenclean}{0.5}
+\newcommand{\dtipaugvstipcleanKonebrown}{+0.21}
+\newcommand{\citipaugvstipcleanKonebrown}{[+0.07, +0.35]}
+\newcommand{\dtipaugvstipcleanKoneclean}{+0.28}
+\newcommand{\citipaugvstipcleanKoneclean}{[+0.06, +0.51]}
+\newcommand{\dtipaugvstipcleanKonepink}{+0.51}
+\newcommand{\citipaugvstipcleanKonepink}{[+0.31, +0.71]}
+\newcommand{\dtipaugvstipcleanKonewhite}{+0.66}
+\newcommand{\citipaugvstipcleanKonewhite}{[+0.40, +0.92]}
+\newcommand{\dtipaugvstipcleanKfourbrown}{+0.70}
+\newcommand{\citipaugvstipcleanKfourbrown}{[+0.32, +1.08]}
+\newcommand{\dtipaugvstipcleanKfourclean}{+0.67}
+\newcommand{\citipaugvstipcleanKfourclean}{[+0.22, +1.11]}
+\newcommand{\dtipaugvstipcleanKfourpink}{+1.84}
+\newcommand{\citipaugvstipcleanKfourpink}{[+1.32, +2.36]}
+\newcommand{\dtipaugvstipcleanKfourwhite}{+2.13}
+\newcommand{\citipaugvstipcleanKfourwhite}{[+1.65, +2.61]}
+\newcommand{\dtipaugvstipcleanKsixteenbrown}{+0.15}
+\newcommand{\citipaugvstipcleanKsixteenbrown}{[-0.09, +0.40]}
+\newcommand{\dtipaugvstipcleanKsixteenclean}{+0.15}
+\newcommand{\citipaugvstipcleanKsixteenclean}{[-0.10, +0.40]}
+\newcommand{\dtipaugvstipcleanKsixteenpink}{+2.21}
+\newcommand{\citipaugvstipcleanKsixteenpink}{[+1.74, +2.68]}
+\newcommand{\dtipaugvstipcleanKsixteenwhite}{+2.83}
+\newcommand{\citipaugvstipcleanKsixteenwhite}{[+2.28, +3.38]}
+\newcommand{\dtipcleanvszsKonebrown}{+0.27}
+\newcommand{\citipcleanvszsKonebrown}{[+0.18, +0.35]}
+\newcommand{\dtipcleanvszsKoneclean}{+0.47}
+\newcommand{\citipcleanvszsKoneclean}{[+0.26, +0.68]}
+\newcommand{\dtipcleanvszsKonepink}{+0.28}
+\newcommand{\citipcleanvszsKonepink}{[+0.12, +0.43]}
+\newcommand{\dtipcleanvszsKonewhite}{+0.31}
+\newcommand{\citipcleanvszsKonewhite}{[+0.17, +0.45]}
+\newcommand{\dtipcleanvszsKfourbrown}{+1.01}
+\newcommand{\citipcleanvszsKfourbrown}{[+0.68, +1.35]}
+\newcommand{\dtipcleanvszsKfourclean}{+1.33}
+\newcommand{\citipcleanvszsKfourclean}{[+0.85, +1.82]}
+\newcommand{\dtipcleanvszsKfourpink}{+1.26}
+\newcommand{\citipcleanvszsKfourpink}{[+1.04, +1.49]}
+\newcommand{\dtipcleanvszsKfourwhite}{+1.44}
+\newcommand{\citipcleanvszsKfourwhite}{[+1.19, +1.69]}
+\newcommand{\dtipcleanvszsKsixteenbrown}{+2.86}
+\newcommand{\citipcleanvszsKsixteenbrown}{[+2.32, +3.39]}
+\newcommand{\dtipcleanvszsKsixteenclean}{+3.32}
+\newcommand{\citipcleanvszsKsixteenclean}{[+2.60, +4.04]}
+\newcommand{\dtipcleanvszsKsixteenpink}{+3.34}
+\newcommand{\citipcleanvszsKsixteenpink}{[+3.02, +3.65]}
+\newcommand{\dtipcleanvszsKsixteenwhite}{+3.75}
+\newcommand{\citipcleanvszsKsixteenwhite}{[+3.51, +3.99]}
+\newcommand{\dtipaugvszsKonebrown}{+0.48}
+\newcommand{\citipaugvszsKonebrown}{[+0.33, +0.62]}
+\newcommand{\dtipaugvszsKoneclean}{+0.75}
+\newcommand{\citipaugvszsKoneclean}{[+0.44, +1.06]}
+\newcommand{\dtipaugvszsKonepink}{+0.79}
+\newcommand{\citipaugvszsKonepink}{[+0.55, +1.02]}
+\newcommand{\dtipaugvszsKonewhite}{+0.97}
+\newcommand{\citipaugvszsKonewhite}{[+0.69, +1.25]}
+\newcommand{\dtipaugvszsKfourbrown}{+1.71}
+\newcommand{\citipaugvszsKfourbrown}{[+1.11, +2.32]}
+\newcommand{\dtipaugvszsKfourclean}{+2.00}
+\newcommand{\citipaugvszsKfourclean}{[+1.28, +2.72]}
+\newcommand{\dtipaugvszsKfourpink}{+3.10}
+\newcommand{\citipaugvszsKfourpink}{[+2.69, +3.51]}
+\newcommand{\dtipaugvszsKfourwhite}{+3.57}
+\newcommand{\citipaugvszsKfourwhite}{[+3.17, +3.97]}
+\newcommand{\dtipaugvszsKsixteenbrown}{+3.01}
+\newcommand{\citipaugvszsKsixteenbrown}{[+2.44, +3.59]}
+\newcommand{\dtipaugvszsKsixteenclean}{+3.47}
+\newcommand{\citipaugvszsKsixteenclean}{[+2.68, +4.25]}
+\newcommand{\dtipaugvszsKsixteenpink}{+5.55}
+\newcommand{\citipaugvszsKsixteenpink}{[+5.08, +6.02]}
+\newcommand{\dtipaugvszsKsixteenwhite}{+6.58}
+\newcommand{\citipaugvszsKsixteenwhite}{[+6.01, +7.15]}
+\newcommand{\dlpaugvslpcleanKonebrown}{+0.16}
+\newcommand{\cilpaugvslpcleanKonebrown}{[-0.85, +1.17]}
+\newcommand{\dlpaugvslpcleanKoneclean}{+0.65}
+\newcommand{\cilpaugvslpcleanKoneclean}{[-0.32, +1.62]}
+\newcommand{\dlpaugvslpcleanKonepink}{+4.90}
+\newcommand{\cilpaugvslpcleanKonepink}{[+3.91, +5.89]}
+\newcommand{\dlpaugvslpcleanKonewhite}{+5.11}
+\newcommand{\cilpaugvslpcleanKonewhite}{[+3.96, +6.25]}
+\newcommand{\dlpaugvslpcleanKfourbrown}{+0.05}
+\newcommand{\cilpaugvslpcleanKfourbrown}{[-0.51, +0.61]}
+\newcommand{\dlpaugvslpcleanKfourclean}{-0.13}
+\newcommand{\cilpaugvslpcleanKfourclean}{[-0.82, +0.55]}
+\newcommand{\dlpaugvslpcleanKfourpink}{+4.41}
+\newcommand{\cilpaugvslpcleanKfourpink}{[+3.78, +5.04]}
+\newcommand{\dlpaugvslpcleanKfourwhite}{+5.20}
+\newcommand{\cilpaugvslpcleanKfourwhite}{[+4.43, +5.97]}
+\newcommand{\dlpaugvslpcleanKsixteenbrown}{+0.15}
+\newcommand{\cilpaugvslpcleanKsixteenbrown}{[-0.12, +0.41]}
+\newcommand{\dlpaugvslpcleanKsixteenclean}{-0.12}
+\newcommand{\cilpaugvslpcleanKsixteenclean}{[-0.41, +0.18]}
+\newcommand{\dlpaugvslpcleanKsixteenpink}{+5.11}
+\newcommand{\cilpaugvslpcleanKsixteenpink}{[+4.41, +5.80]}
+\newcommand{\dlpaugvslpcleanKsixteenwhite}{+6.21}
+\newcommand{\cilpaugvslpcleanKsixteenwhite}{[+5.38, +7.03]}
+\newcommand{\dtipaugvslpaugKonebrown}{+5.60}
+\newcommand{\citipaugvslpaugKonebrown}{[+3.75, +7.46]}
+\newcommand{\dtipaugvslpaugKoneclean}{+5.33}
+\newcommand{\citipaugvslpaugKoneclean}{[+3.56, +7.11]}
+\newcommand{\dtipaugvslpaugKonepink}{+3.24}
+\newcommand{\citipaugvslpaugKonepink}{[+1.99, +4.49]}
+\newcommand{\dtipaugvslpaugKonewhite}{+3.09}
+\newcommand{\citipaugvslpaugKonewhite}{[+2.08, +4.09]}
+\newcommand{\dtipaugvslpaugKfourbrown}{-1.09}
+\newcommand{\citipaugvslpaugKfourbrown}{[-1.80, -0.37]}
+\newcommand{\dtipaugvslpaugKfourclean}{-1.23}
+\newcommand{\citipaugvslpaugKfourclean}{[-2.10, -0.37]}
+\newcommand{\dtipaugvslpaugKfourpink}{-3.54}
+\newcommand{\citipaugvslpaugKfourpink}{[-4.11, -2.96]}
+\newcommand{\dtipaugvslpaugKfourwhite}{-4.48}
+\newcommand{\citipaugvslpaugKfourwhite}{[-4.96, -4.01]}
+\newcommand{\dtipaugvslpaugKsixteenbrown}{-1.42}
+\newcommand{\citipaugvslpaugKsixteenbrown}{[-1.86, -0.98]}
+\newcommand{\dtipaugvslpaugKsixteenclean}{-1.38}
+\newcommand{\citipaugvslpaugKsixteenclean}{[-1.84, -0.93]}
+\newcommand{\dtipaugvslpaugKsixteenpink}{-3.17}
+\newcommand{\citipaugvslpaugKsixteenpink}{[-3.60, -2.74]}
+\newcommand{\dtipaugvslpaugKsixteenwhite}{-3.77}
+\newcommand{\citipaugvslpaugKsixteenwhite}{[-4.41, -3.14]}
+\newcommand{\dtipnoisyonlyvstipcleanKonebrown}{+0.00}
+\newcommand{\citipnoisyonlyvstipcleanKonebrown}{[-0.09, +0.09]}
+\newcommand{\dtipnoisyonlyvstipcleanKoneclean}{-0.02}
+\newcommand{\citipnoisyonlyvstipcleanKoneclean}{[-0.14, +0.11]}
+\newcommand{\dtipnoisyonlyvstipcleanKonepink}{+0.17}
+\newcommand{\citipnoisyonlyvstipcleanKonepink}{[+0.05, +0.29]}
+\newcommand{\dtipnoisyonlyvstipcleanKonewhite}{+0.25}
+\newcommand{\citipnoisyonlyvstipcleanKonewhite}{[+0.09, +0.41]}
+\newcommand{\dtipnoisyonlyvstipcleanKfourbrown}{-0.23}
+\newcommand{\citipnoisyonlyvstipcleanKfourbrown}{[-0.43, -0.03]}
+\newcommand{\dtipnoisyonlyvstipcleanKfourclean}{-0.28}
+\newcommand{\citipnoisyonlyvstipcleanKfourclean}{[-0.55, -0.01]}
+\newcommand{\dtipnoisyonlyvstipcleanKfourpink}{+0.68}
+\newcommand{\citipnoisyonlyvstipcleanKfourpink}{[+0.11, +1.24]}
+\newcommand{\dtipnoisyonlyvstipcleanKfourwhite}{+1.02}
+\newcommand{\citipnoisyonlyvstipcleanKfourwhite}{[+0.39, +1.65]}
+\newcommand{\dtipnoisyonlyvstipcleanKsixteenbrown}{-0.51}
+\newcommand{\citipnoisyonlyvstipcleanKsixteenbrown}{[-0.67, -0.34]}
+\newcommand{\dtipnoisyonlyvstipcleanKsixteenclean}{-0.57}
+\newcommand{\citipnoisyonlyvstipcleanKsixteenclean}{[-0.80, -0.33]}
+\newcommand{\dtipnoisyonlyvstipcleanKsixteenpink}{+2.18}
+\newcommand{\citipnoisyonlyvstipcleanKsixteenpink}{[+1.82, +2.53]}
+\newcommand{\dtipnoisyonlyvstipcleanKsixteenwhite}{+2.79}
+\newcommand{\citipnoisyonlyvstipcleanKsixteenwhite}{[+2.30, +3.28]}
+\newcommand{\encdevice}{cuda:0}
+\newcommand{\enclatencybsonemsmedian}{24.4}
+\newcommand{\enclatencybsonemspninezero}{27.2}
+\newcommand{\encpeakmembsoneMB}{653.0}
+\newcommand{\encthroughputclipspers}{151.2}
+\newcommand{\encperclipmsbatched}{6.6}
+\newcommand{\encpeakmembsthreetwoMB}{1659.4}
+\newcommand{\encgpu}{NVIDIA GeForce RTX 3080}
+\newcommand{\nClassGain}{35}
+\newcommand{\nClassLoss}{12}
+\newcommand{\exttipcleanKoneclean}{94.2}
+\newcommand{\exttipcleanKonewhite}{83.1}
+\newcommand{\exttipcleanKonepink}{83.9}
+\newcommand{\exttipcleanKonebrown}{94.1}
+\newcommand{\exttipcleanKonenoisy}{87.1}
+\newcommand{\exttipaugKoneclean}{94.3}
+\newcommand{\exttipaugKonewhite}{84.9}
+\newcommand{\exttipaugKonepink}{85.4}
+\newcommand{\exttipaugKonebrown}{94.3}
+\newcommand{\exttipaugKonenoisy}{88.2}
+\newcommand{\exttipnoisyonlyKoneclean}{93.7}
+\newcommand{\exttipnoisyonlyKonewhite}{84.8}
+\newcommand{\exttipnoisyonlyKonepink}{85.3}
+\newcommand{\exttipnoisyonlyKonebrown}{93.6}
+\newcommand{\exttipnoisyonlyKonenoisy}{87.9}
+\newcommand{\extlpcleanKoneclean}{87.1}
+\newcommand{\extlpcleanKonewhite}{73.8}
+\newcommand{\extlpcleanKonepink}{74.9}
+\newcommand{\extlpcleanKonebrown}{87.4}
+\newcommand{\extlpcleanKonenoisy}{78.7}
+\newcommand{\extlpaugKoneclean}{87.7}
+\newcommand{\extlpaugKonewhite}{78.9}
+\newcommand{\extlpaugKonepink}{79.8}
+\newcommand{\extlpaugKonebrown}{87.6}
+\newcommand{\extlpaugKonenoisy}{82.1}
+\newcommand{\exttipcleanKfourclean}{95.3}
+\newcommand{\exttipcleanKfourwhite}{85.1}
+\newcommand{\exttipcleanKfourpink}{85.4}
+\newcommand{\exttipcleanKfourbrown}{95.3}
+\newcommand{\exttipcleanKfournoisy}{88.6}
+\newcommand{\exttipaugKfourclean}{95.4}
+\newcommand{\exttipaugKfourwhite}{87.9}
+\newcommand{\exttipaugKfourpink}{87.9}
+\newcommand{\exttipaugKfourbrown}{95.4}
+\newcommand{\exttipaugKfournoisy}{90.4}
+\newcommand{\exttipnoisyonlyKfourclean}{95.2}
+\newcommand{\exttipnoisyonlyKfourwhite}{88.2}
+\newcommand{\exttipnoisyonlyKfourpink}{88.2}
+\newcommand{\exttipnoisyonlyKfourbrown}{95.2}
+\newcommand{\exttipnoisyonlyKfournoisy}{90.5}
+\newcommand{\extlpcleanKfourclean}{95.7}
+\newcommand{\extlpcleanKfourwhite}{83.8}
+\newcommand{\extlpcleanKfourpink}{84.5}
+\newcommand{\extlpcleanKfourbrown}{95.4}
+\newcommand{\extlpcleanKfournoisy}{87.9}
+\newcommand{\extlpaugKfourclean}{95.5}
+\newcommand{\extlpaugKfourwhite}{89.0}
+\newcommand{\extlpaugKfourpink}{88.9}
+\newcommand{\extlpaugKfourbrown}{95.5}
+\newcommand{\extlpaugKfournoisy}{91.1}
+\newcommand{\exttipcleanKsixteenclean}{96.1}
+\newcommand{\exttipcleanKsixteenwhite}{85.8}
+\newcommand{\exttipcleanKsixteenpink}{86.1}
+\newcommand{\exttipcleanKsixteenbrown}{96.2}
+\newcommand{\exttipcleanKsixteennoisy}{89.4}
+\newcommand{\exttipaugKsixteenclean}{96.1}
+\newcommand{\exttipaugKsixteenwhite}{89.3}
+\newcommand{\exttipaugKsixteenpink}{89.3}
+\newcommand{\exttipaugKsixteenbrown}{96.3}
+\newcommand{\exttipaugKsixteennoisy}{91.6}
+\newcommand{\exttipnoisyonlyKsixteenclean}{95.2}
+\newcommand{\exttipnoisyonlyKsixteenwhite}{89.1}
+\newcommand{\exttipnoisyonlyKsixteenpink}{89.6}
+\newcommand{\exttipnoisyonlyKsixteenbrown}{95.3}
+\newcommand{\exttipnoisyonlyKsixteennoisy}{91.3}
+\newcommand{\extlpcleanKsixteenclean}{97.3}
+\newcommand{\extlpcleanKsixteenwhite}{85.1}
+\newcommand{\extlpcleanKsixteenpink}{85.9}
+\newcommand{\extlpcleanKsixteenbrown}{97.0}
+\newcommand{\extlpcleanKsixteennoisy}{89.3}
+\newcommand{\extlpaugKsixteenclean}{97.2}
+\newcommand{\extlpaugKsixteenwhite}{91.3}
+\newcommand{\extlpaugKsixteenpink}{91.0}
+\newcommand{\extlpaugKsixteenbrown}{97.1}
+\newcommand{\extlpaugKsixteennoisy}{93.1}
+\newcommand{\extdtipaugvstipcleanKonebrown}{+0.20}
+\newcommand{\extcitipaugvstipcleanKonebrown}{[-0.12, +0.51]}
+\newcommand{\extdtipaugvstipcleanKoneclean}{+0.13}
+\newcommand{\extcitipaugvstipcleanKoneclean}{[-0.23, +0.50]}
+\newcommand{\extdtipaugvstipcleanKonepink}{+1.53}
+\newcommand{\extcitipaugvstipcleanKonepink}{[+1.07, +1.99]}
+\newcommand{\extdtipaugvstipcleanKonewhite}{+1.75}
+\newcommand{\extcitipaugvstipcleanKonewhite}{[+1.26, +2.25]}
+\newcommand{\extdtipaugvstipcleanKfourbrown}{+0.11}
+\newcommand{\extcitipaugvstipcleanKfourbrown}{[-0.27, +0.49]}
+\newcommand{\extdtipaugvstipcleanKfourclean}{+0.07}
+\newcommand{\extcitipaugvstipcleanKfourclean}{[-0.37, +0.51]}
+\newcommand{\extdtipaugvstipcleanKfourpink}{+2.49}
+\newcommand{\extcitipaugvstipcleanKfourpink}{[+1.88, +3.10]}
+\newcommand{\extdtipaugvstipcleanKfourwhite}{+2.85}
+\newcommand{\extcitipaugvstipcleanKfourwhite}{[+2.19, +3.51]}
+\newcommand{\extdtipaugvstipcleanKsixteenbrown}{+0.05}
+\newcommand{\extcitipaugvstipcleanKsixteenbrown}{[-0.22, +0.33]}
+\newcommand{\extdtipaugvstipcleanKsixteenclean}{+0.03}
+\newcommand{\extcitipaugvstipcleanKsixteenclean}{[-0.41, +0.48]}
+\newcommand{\extdtipaugvstipcleanKsixteenpink}{+3.20}
+\newcommand{\extcitipaugvstipcleanKsixteenpink}{[+2.56, +3.84]}
+\newcommand{\extdtipaugvstipcleanKsixteenwhite}{+3.51}
+\newcommand{\extcitipaugvstipcleanKsixteenwhite}{[+2.87, +4.15]}
+\newcommand{\extdtipcleanvszsKonebrown}{+1.45}
+\newcommand{\extcitipcleanvszsKonebrown}{[+0.82, +2.09]}
+\newcommand{\extdtipcleanvszsKoneclean}{+1.88}
+\newcommand{\extcitipcleanvszsKoneclean}{[+1.13, +2.64]}
+\newcommand{\extdtipcleanvszsKonepink}{+1.62}
+\newcommand{\extcitipcleanvszsKonepink}{[+1.10, +2.13]}
+\newcommand{\extdtipcleanvszsKonewhite}{+2.16}
+\newcommand{\extcitipcleanvszsKonewhite}{[+1.64, +2.67]}
+\newcommand{\extdtipcleanvszsKfourbrown}{+2.65}
+\newcommand{\extcitipcleanvszsKfourbrown}{[+2.11, +3.19]}
+\newcommand{\extdtipcleanvszsKfourclean}{+3.02}
+\newcommand{\extcitipcleanvszsKfourclean}{[+2.39, +3.64]}
+\newcommand{\extdtipcleanvszsKfourpink}{+3.18}
+\newcommand{\extcitipcleanvszsKfourpink}{[+2.84, +3.53]}
+\newcommand{\extdtipcleanvszsKfourwhite}{+4.08}
+\newcommand{\extcitipcleanvszsKfourwhite}{[+3.59, +4.57]}
+\newcommand{\extdtipcleanvszsKsixteenbrown}{+3.54}
+\newcommand{\extcitipcleanvszsKsixteenbrown}{[+2.84, +4.25]}
+\newcommand{\extdtipcleanvszsKsixteenclean}{+3.78}
+\newcommand{\extcitipcleanvszsKsixteenclean}{[+2.97, +4.60]}
+\newcommand{\extdtipcleanvszsKsixteenpink}{+3.86}
+\newcommand{\extcitipcleanvszsKsixteenpink}{[+3.60, +4.12]}
+\newcommand{\extdtipcleanvszsKsixteenwhite}{+4.76}
+\newcommand{\extcitipcleanvszsKsixteenwhite}{[+4.27, +5.25]}
+\newcommand{\extdtipaugvszsKonebrown}{+1.65}
+\newcommand{\extcitipaugvszsKonebrown}{[+1.02, +2.28]}
+\newcommand{\extdtipaugvszsKoneclean}{+2.02}
+\newcommand{\extcitipaugvszsKoneclean}{[+1.19, +2.84]}
+\newcommand{\extdtipaugvszsKonepink}{+3.15}
+\newcommand{\extcitipaugvszsKonepink}{[+2.64, +3.65]}
+\newcommand{\extdtipaugvszsKonewhite}{+3.91}
+\newcommand{\extcitipaugvszsKonewhite}{[+3.27, +4.55]}
+\newcommand{\extdtipaugvszsKfourbrown}{+2.76}
+\newcommand{\extcitipaugvszsKfourbrown}{[+2.24, +3.29]}
+\newcommand{\extdtipaugvszsKfourclean}{+3.08}
+\newcommand{\extcitipaugvszsKfourclean}{[+2.57, +3.59]}
+\newcommand{\extdtipaugvszsKfourpink}{+5.67}
+\newcommand{\extcitipaugvszsKfourpink}{[+4.89, +6.45]}
+\newcommand{\extdtipaugvszsKfourwhite}{+6.93}
+\newcommand{\extcitipaugvszsKfourwhite}{[+6.35, +7.51]}
+\newcommand{\extdtipaugvszsKsixteenbrown}{+3.60}
+\newcommand{\extcitipaugvszsKsixteenbrown}{[+2.95, +4.24]}
+\newcommand{\extdtipaugvszsKsixteenclean}{+3.82}
+\newcommand{\extcitipaugvszsKsixteenclean}{[+2.96, +4.67]}
+\newcommand{\extdtipaugvszsKsixteenpink}{+7.06}
+\newcommand{\extcitipaugvszsKsixteenpink}{[+6.31, +7.81]}
+\newcommand{\extdtipaugvszsKsixteenwhite}{+8.27}
+\newcommand{\extcitipaugvszsKsixteenwhite}{[+7.64, +8.91]}
+\newcommand{\extdlpaugvslpcleanKonebrown}{+0.16}
+\newcommand{\extcilpaugvslpcleanKonebrown}{[-0.85, +1.17]}
+\newcommand{\extdlpaugvslpcleanKoneclean}{+0.65}
+\newcommand{\extcilpaugvslpcleanKoneclean}{[-0.32, +1.62]}
+\newcommand{\extdlpaugvslpcleanKonepink}{+4.90}
+\newcommand{\extcilpaugvslpcleanKonepink}{[+3.91, +5.89]}
+\newcommand{\extdlpaugvslpcleanKonewhite}{+5.11}
+\newcommand{\extcilpaugvslpcleanKonewhite}{[+3.96, +6.25]}
+\newcommand{\extdlpaugvslpcleanKfourbrown}{+0.05}
+\newcommand{\extcilpaugvslpcleanKfourbrown}{[-0.51, +0.61]}
+\newcommand{\extdlpaugvslpcleanKfourclean}{-0.13}
+\newcommand{\extcilpaugvslpcleanKfourclean}{[-0.82, +0.55]}
+\newcommand{\extdlpaugvslpcleanKfourpink}{+4.41}
+\newcommand{\extcilpaugvslpcleanKfourpink}{[+3.78, +5.04]}
+\newcommand{\extdlpaugvslpcleanKfourwhite}{+5.20}
+\newcommand{\extcilpaugvslpcleanKfourwhite}{[+4.43, +5.97]}
+\newcommand{\extdlpaugvslpcleanKsixteenbrown}{+0.15}
+\newcommand{\extcilpaugvslpcleanKsixteenbrown}{[-0.12, +0.41]}
+\newcommand{\extdlpaugvslpcleanKsixteenclean}{-0.12}
+\newcommand{\extcilpaugvslpcleanKsixteenclean}{[-0.41, +0.18]}
+\newcommand{\extdlpaugvslpcleanKsixteenpink}{+5.11}
+\newcommand{\extcilpaugvslpcleanKsixteenpink}{[+4.41, +5.80]}
+\newcommand{\extdlpaugvslpcleanKsixteenwhite}{+6.21}
+\newcommand{\extcilpaugvslpcleanKsixteenwhite}{[+5.38, +7.03]}
+\newcommand{\extdtipaugvslpaugKonebrown}{+6.78}
+\newcommand{\extcitipaugvslpaugKonebrown}{[+5.22, +8.34]}
+\newcommand{\extdtipaugvslpaugKoneclean}{+6.60}
+\newcommand{\extcitipaugvslpaugKoneclean}{[+5.07, +8.13]}
+\newcommand{\extdtipaugvslpaugKonepink}{+5.60}
+\newcommand{\extcitipaugvslpaugKonepink}{[+4.52, +6.68]}
+\newcommand{\extdtipaugvslpaugKonewhite}{+6.03}
+\newcommand{\extcitipaugvslpaugKonewhite}{[+4.94, +7.12]}
+\newcommand{\extdtipaugvslpaugKfourbrown}{-0.04}
+\newcommand{\extcitipaugvslpaugKfourbrown}{[-0.58, +0.51]}
+\newcommand{\extdtipaugvslpaugKfourclean}{-0.15}
+\newcommand{\extcitipaugvslpaugKfourclean}{[-0.87, +0.57]}
+\newcommand{\extdtipaugvslpaugKfourpink}{-0.97}
+\newcommand{\extcitipaugvslpaugKfourpink}{[-1.50, -0.44]}
+\newcommand{\extdtipaugvslpaugKfourwhite}{-1.13}
+\newcommand{\extcitipaugvslpaugKfourwhite}{[-1.63, -0.62]}
+\newcommand{\extdtipaugvslpaugKsixteenbrown}{-0.84}
+\newcommand{\extcitipaugvslpaugKsixteenbrown}{[-1.11, -0.57]}
+\newcommand{\extdtipaugvslpaugKsixteenclean}{-1.03}
+\newcommand{\extcitipaugvslpaugKsixteenclean}{[-1.38, -0.69]}
+\newcommand{\extdtipaugvslpaugKsixteenpink}{-1.66}
+\newcommand{\extcitipaugvslpaugKsixteenpink}{[-2.02, -1.31]}
+\newcommand{\extdtipaugvslpaugKsixteenwhite}{-2.08}
+\newcommand{\extcitipaugvslpaugKsixteenwhite}{[-2.57, -1.59]}
+\newcommand{\extdtipnoisyonlyvstipcleanKonebrown}{-0.52}
+\newcommand{\extcitipnoisyonlyvstipcleanKonebrown}{[-0.89, -0.14]}
+\newcommand{\extdtipnoisyonlyvstipcleanKoneclean}{-0.50}
+\newcommand{\extcitipnoisyonlyvstipcleanKoneclean}{[-1.03, +0.03]}
+\newcommand{\extdtipnoisyonlyvstipcleanKonepink}{+1.41}
+\newcommand{\extcitipnoisyonlyvstipcleanKonepink}{[+1.00, +1.82]}
+\newcommand{\extdtipnoisyonlyvstipcleanKonewhite}{+1.61}
+\newcommand{\extcitipnoisyonlyvstipcleanKonewhite}{[+1.15, +2.07]}
+\newcommand{\extdtipnoisyonlyvstipcleanKfourbrown}{-0.16}
+\newcommand{\extcitipnoisyonlyvstipcleanKfourbrown}{[-0.50, +0.18]}
+\newcommand{\extdtipnoisyonlyvstipcleanKfourclean}{-0.17}
+\newcommand{\extcitipnoisyonlyvstipcleanKfourclean}{[-0.52, +0.19]}
+\newcommand{\extdtipnoisyonlyvstipcleanKfourpink}{+2.80}
+\newcommand{\extcitipnoisyonlyvstipcleanKfourpink}{[+2.08, +3.52]}
+\newcommand{\extdtipnoisyonlyvstipcleanKfourwhite}{+3.10}
+\newcommand{\extcitipnoisyonlyvstipcleanKfourwhite}{[+2.45, +3.74]}
+\newcommand{\extdtipnoisyonlyvstipcleanKsixteenbrown}{-0.92}
+\newcommand{\extcitipnoisyonlyvstipcleanKsixteenbrown}{[-1.35, -0.49]}
+\newcommand{\extdtipnoisyonlyvstipcleanKsixteenclean}{-0.83}
+\newcommand{\extcitipnoisyonlyvstipcleanKsixteenclean}{[-1.30, -0.36]}
+\newcommand{\extdtipnoisyonlyvstipcleanKsixteenpink}{+3.47}
+\newcommand{\extcitipnoisyonlyvstipcleanKsixteenpink}{[+2.82, +4.13]}
+\newcommand{\extdtipnoisyonlyvstipcleanKsixteenwhite}{+3.35}
+\newcommand{\extcitipnoisyonlyvstipcleanKsixteenwhite}{[+2.78, +3.91]}
+\newcommand{\extalphaedge}{40}
+\newcommand{\extalphaN}{135}
+\newcommand{\envgpu}{NVIDIA GeForce RTX 3080}
+\newcommand{\envcommit}{f6482569f2}

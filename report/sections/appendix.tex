@@ -1,0 +1,37 @@
+\section{Reproducibility record}
+\label{app:repro}
+
+\paragraph{Repository.} \url{\repourl}; the submitted version is the tag \texttt{v1.0}.
+
+\paragraph{Commands.}
+\begin{verbatim}
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 \
+    --index-url https://download.pytorch.org/whl/cu121
+pip install -r requirements.txt
+python -m tests.test_synthetic                 # CPU test, no downloads
+python run_all.py --smoke                      # 500-clip end-to-end check
+python run_all.py --stage all                  # main experiment (GPU)
+python run_all.py --config configs/extended_grid.yaml --stage eval report
+python report/make_tables.py                   # LaTeX tables for this report
+python scripts/noise_band_power.py             # in-band noise power (Sec. 7.2)
+\end{verbatim}
+
+\paragraph{Software and hardware [Measured, \texttt{results/environment.json}].}
+Python 3.11.9, Windows (build 10.0.26200), PyTorch 2.5.1 + CUDA 12.1, torchaudio 2.5.1, \texttt{laion\_clap} 1.1.7, transformers 4.44.2, NumPy 1.26.4, librosa 0.10.2.post1,
+scikit-learn 1.5.2, SciPy 1.14.1, pandas 2.2.3; GPU: \encgpu\ (10\,GB), 32\,GB RAM.
+
+\paragraph{Checkpoints [Measured, \texttt{results/checkpoints.json}].}
+From \url{https://huggingface.co/lukewys/laion_clap} (SHA-256, first 16 hex digits):
+\texttt{630k-best} e02951eae3c9955d, \texttt{630k-audioset-best} 8053c9775516af2f,
+\texttt{630k-fusion-best} 28f414e007dd772a, \texttt{630k-audioset-fusion-best} fb171dd9b608aebd.
+
+\paragraph{Data.} ESC-50 master branch from \url{https://github.com/karolpiczak/ESC-50} (CC BY-NC 3.0); audio is not redistributed. Resampled to 48\,kHz with \texttt{librosa.load}; cached as \texttt{data/esc50\_48k.npy}.
+
+\paragraph{Seeds.} Global seed 0; support sampling uses \texttt{numpy.random.default\_rng([0, seed, fold, K])} with seeds 0, 1, 2; test noise and augmentation noise use disjoint, clip-indexed seed spaces (\texttt{src/noise.py}).
+
+\paragraph{Determinism check.} The evaluation stage was re-run the evaluation stage from the saved embeddings on a second machine (Linux, CPU only). All 2990 accuracy values in \texttt{results/fewshot\_runs.csv} and all reproduction accuracies were identical to the Windows run.
+
+\section{AI-use disclosure}
+Claude (Anthropic) was used, as the course policy permits, for: suggesting candidate papers; searching for and summarising related work, which I then checked against the papers;
+writing and testing the experiment code (data pipeline, noise generation, adapters, evaluation and plotting); and drafting the text of this report, which I revised.
+I ran the experiments on my own hardware and checked the outputs against the result files; the determinism check on a second (Linux) machine was run by the assistant. I am responsible for every claim and citation in this report.

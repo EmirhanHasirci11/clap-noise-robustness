@@ -1,0 +1,10 @@
+\begin{abstract}
+\noindent
+Language-audio models such as LAION-CLAP classify sounds zero-shot by comparing an audio embedding with text prompts, but their behaviour under background noise is rarely measured.
+I reproduce LAION-CLAP's ESC-50 zero-shot result with all four released checkpoints and three prompts, and then test one change to few-shot adaptation:
+building a training-free Tip-Adapter cache from clean \emph{and} noise-augmented support clips.
+The checkpoints reach \repbestA--\repaudiosetA\% zero-shot accuracy (paper: 88.0--91.0\%); prompt wording changes accuracy by up to 10 points, and feature fusion has no effect on 5-second clips because the code bypasses it.
+At 0\,dB white or pink noise, zero-shot accuracy falls by about 25 points and predictions collapse onto noise-like classes.
+With 16 clips per class, the noise-augmented cache improves accuracy under white and pink noise by \dtipaugvstipcleanKsixteenwhite\ and \dtipaugvstipcleanKsixteenpink\ points over a clean cache in all 15 fold/seed runs (\extdtipaugvstipcleanKsixteenwhite\ and \extdtipaugvstipcleanKsixteenpink\ with a wider hyper-parameter grid), including pink noise that was never used to build the cache, without measurable clean-accuracy cost.
+A control shows that the gain comes from the augmented data rather than from the cache: a linear probe on the same data gains more and is the best method from four clips per class upward.
+\end{abstract}

@@ -1,0 +1,25 @@
+\section{Limitations, conclusions and unresolved questions}
+\label{sec:limits}
+
+\paragraph{Limitations.}
+\begin{itemize}\itemsep0pt
+\item \emph{No retraining.} I tested the paper's claims through released checkpoints. The checkpoints differ in more than the one factor I compare (fusion, AudioSet+K2C), so E2 and E3 are observational, not controlled ablations.
+\item \emph{One dataset, synthetic noise.} All results are on ESC-50 with Gaussian coloured noise. Real background noise (speech babble, traffic, music) is non-stationary and was not tested. The brown-noise condition turned out to be almost clean in the model's frequency band, so only two noise types are informative.
+\item \emph{SNR definition.} SNR is computed over the whole clip; for clips with short events the local SNR during the event is higher than nominal.
+\item \emph{Possible train/test overlap.} ESC-50 and LAION-Audio-630K both draw on Freesound. The authors state that overlap was handled, but I could not verify it for the released checkpoints, so absolute zero-shot numbers may be optimistic. This does not affect the \emph{paired} comparisons between adapters, which share the same embeddings.
+\item \emph{Uncertainty.} Intervals are over 15 (fold, seed) runs that are not independent; they describe run-to-run variation, not population uncertainty.
+\item \emph{Hyper-parameter grid.} The pre-specified $\alpha$ grid was too narrow. The follow-up widened it after seeing the boundary (selection still on validation data only), but even the wider grid was often at its edge.
+\item \emph{Only one backbone and one adapter family.} Treff's learned cross-attention, Tip-Adapter-F and noise-augmented fine-tuning of the probe or encoder were not tried.
+\end{itemize}
+
+\paragraph{Conclusions.}
+(1) The released LAION-CLAP checkpoints reproduce, and slightly exceed, the paper's ESC-50 zero-shot accuracy (\repbestA--\repaudiosetA\% vs.\ 88.0--91.0\%), but the result moves by several points with the prompt and by about two points with the evaluation pipeline.
+(2) Feature fusion cannot matter on ESC-50 because the code bypasses it for clips of 10\,s or less; the measured differences between fusion and non-fusion checkpoints are within fold noise.
+(3) Zero-shot CLAP loses about 25 points at 0\,dB white or pink noise and collapses onto noise-like classes.
+(4) Adding noise-augmented copies of the support clips to a Tip-Adapter cache improves noisy accuracy over a clean cache by about 2--3.5 points at $K{=}16$, also for a noise colour that was not used to build the cache, with no measurable clean-accuracy cost and negligible run-time cost.
+(5) The improvement comes from the augmented data rather than from the cache: a logistic-regression probe trained on the same data gains more and is the best method for $K\ge4$. The training-free cache is preferable only with one clip per class.
+
+\paragraph{Unresolved questions.}
+Why does the validation fold keep choosing a cache weight that overrides the text prior, and would a calibrated combination of probe and zero-shot logits beat both?
+Does the gain hold for real recorded noise and for longer audio where fusion is actually used?
+Can the augmentation SNR range be chosen without knowing the deployment noise, for example by sampling several noise colours?

@@ -1,0 +1,32 @@
+\section{Proposed improvement and its rationale}
+\label{sec:improve}
+
+\paragraph{Weakness addressed.}
+Zero-shot CLAP is fixed once the prompts are chosen. If the deployment microphone adds background noise, the audio embedding moves,
+but nothing in the classifier can follow it. Few-shot caches (Tip-Adapter, Treff) adapt the classifier with $K$ labelled clips,
+but they are built and tested on clean audio only (Section~\ref{sec:lit}).
+
+\paragraph{Intervention.}
+I keep the frozen model and the Tip-Adapter rule unchanged and change only the cache contents.
+For every clean support clip $x$ I add one corrupted copy $\tilde x = x + g\,n$, where $n$ is white Gaussian noise and the gain $g$ gives an SNR drawn uniformly from $[0, 20]$\,dB:
+\[
+  F' = \begin{bmatrix} F \\ \tilde F \end{bmatrix},\qquad L' = \begin{bmatrix} L \\ L \end{bmatrix}.
+\]
+The cost is one extra encoder pass per support clip at set-up time and a cache twice as large; inference cost grows by one more matrix product.
+
+\paragraph{Why I expect it to help (written before seeing results).}
+\textbf{[Interpretation]} Additive noise pulls embeddings of very different sounds towards a common ``noise'' region, so a noisy test clip will be close to
+\emph{no} clean key and the cache term will be small; the decision falls back to the text prior, which is itself confused by the noise.
+Noisy keys sit in that shifted region with the correct label attached, so a noisy test clip should find a nearby key of its own class.
+Predictions before the experiment:
+(P1) the noisy cache will beat the clean cache under noise, more at low SNR;
+(P2) the gain will be largest for white noise (seen when building the cache) and smaller for pink and brown noise (unseen);
+(P3) clean accuracy will not drop, because the clean keys are kept;
+(P4) a linear probe trained on the same clean+noisy data will also gain, which would show that the benefit comes from the data rather than from the cache mechanism.
+A result that would refute the idea: no gain, or a gain under white noise only, or a clean-accuracy loss larger than the noisy gain.
+
+\paragraph{Controls and ablations.}
+\emph{Zero-shot} (no adaptation), \emph{Tip clean} (the existing method: same $K$ clips, clean only),
+\emph{Tip noisy-only} (are clean keys needed?), and two logistic-regression probes on the same support sets,
+\emph{LP clean} and \emph{LP clean+noisy} (does the gain need the zero-shot prior and the cache?).
+Duplicating clean keys instead of adding noisy ones is not a meaningful control: it only multiplies the cache term by two, which the $\alpha$ search already covers.

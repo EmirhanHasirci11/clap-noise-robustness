@@ -1,0 +1,12 @@
+{
+  "device": "cuda:0",
+  "n_clips": 100,
+  "batch_size": 32,
+  "latency_bs1_ms_median": 24.44885001750663,
+  "latency_bs1_ms_p90": 27.182050031842664,
+  "peak_mem_bs1_MB": 653.00927734375,
+  "throughput_clips_per_s": 151.22713256727377,
+  "per_clip_ms_batched": 6.612569999997504,
+  "peak_mem_bs32_MB": 1659.35302734375,
+  "gpu": "NVIDIA GeForce RTX 3080"
+}

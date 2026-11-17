@@ -1,0 +1,35 @@
+\section{Reproduction target, implementation and deviations}
+\label{sec:repro}
+
+\paragraph{Claim tested.}
+LAION-CLAP reports ESC-50 zero-shot top-1 accuracy of 89.1\% (CLAP), 88.0\% (CLAP + fusion) and 91.0\% (CLAP + K2C augmentation)
+\textbf{[Reported, Table 4 of~\cite{wu2023laionclap}]}. The official README additionally reports, for the pip default checkpoints on
+ESC-50 fold 1, R@1 = 92.75\% (non-fusion) and 90.50\% (fusion) \textbf{[Reported, \cite{laionclapgithub}]}.
+
+\paragraph{Expectations written before running.}
+(E1) The released checkpoints should reach roughly 88--93\% on ESC-50; I would question the claim if the best checkpoint stayed more than 3 points below 89\%.
+(E2) Because the fusion path is bypassed for 5\,s clips (Section~\ref{sec:method}), fusion should \emph{not} improve ESC-50 accuracy; any difference comes from the different weights.
+(E3) Checkpoints trained with AudioSet + K2C should be at least as good as the LAION-630K-only ones.
+(E4) Prompt wording should move accuracy by a point or more.
+
+\paragraph{Implementation.}
+I did not retrain LAION-CLAP (Section~\ref{sec:limits}). I used the official pip package \texttt{laion\_clap==1.1.7} and its
+\texttt{get\_audio\_embedding\_from\_data} / \texttt{get\_text\_embedding} API, and the four general-audio checkpoints
+\texttt{630k-best}, \texttt{630k-audioset-best}, \texttt{630k-fusion-best}, \texttt{630k-audioset-fusion-best}
+from \texttt{huggingface.co/lukewys/laion\_clap}. Their SHA-256 hashes are recorded in \texttt{results/checkpoints.json}.
+ESC-50~\cite{piczak2015esc} (2000 clips, 50 classes, 5 official folds) is downloaded from its GitHub repository and resampled from
+44.1 to 48\,kHz with \texttt{librosa.load}, the same call that the package uses in \texttt{get\_audio\_embedding\_from\_filelist};
+the package then int16-quantises the waveform as in the official example.
+Each checkpoint is evaluated with three prompts: the README prompt ``\texttt{This is a sound of \{\}.}'', the prompt printed in the paper
+``\texttt{This a sound of \{\}.}'' (typo kept), and the bare class name. Class names are the ESC-50 categories with underscores replaced by spaces, as the README instructs.
+Everything is run by \texttt{python run\_all.py --stage all}; versions, GPU and git commit are written to \texttt{results/environment.json}.
+
+\paragraph{Deviations from the original setup and what they mean.}
+\begin{itemize}\itemsep0pt
+\item \emph{Released checkpoints instead of the paper's models.} The paper does not map Table 4 rows to released files, and the README states that its numbers are
+slightly higher than the paper and attributes this to using the ESC-50 train+test data and removing overlapping (mainly Freesound) clips from the other training sets. So my numbers test the released artefacts, which is what anyone using CLAP actually runs, not the exact paper models.
+\item \emph{All 2000 clips.} The paper evaluates on ESC-50 after removing clips that overlap its training data; the remaining count is not given.
+I report all 2000 clips and, separately, fold 1, which is the split used by the README. The fold-1 number is the most direct comparison.
+\item \emph{Pre-processing.} The authors evaluated from their own FLAC/webdataset conversion; I resample the original WAV files with librosa. Small differences of a few clips are possible.
+\item \emph{No training.} The paper's contributions (data scale, fusion, K2C) are training-time choices, so I can only test them through the released checkpoints that differ in those choices (with/without fusion, with/without AudioSet+K2C). This is a weaker test than retraining, because the checkpoints may differ in other uncontrolled ways.
+\end{itemize}

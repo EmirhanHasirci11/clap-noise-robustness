@@ -1,0 +1,45 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,multirow}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\captionsetup{font=small,labelfont=bf}
+\graphicspath{{../results/figures/}}
+\input{generated/macros.tex}
+
+\newcommand{\repourl}{https://github.com/EmirhanHasirci11/clap-noise-robustness}
+
+\title{Robustness of Language-Audio Classification to Background Noise:\\
+Reproducing LAION-CLAP Zero-Shot on ESC-50 and Testing a Noise-Augmented Few-Shot Cache}
+\author{Emirhan Hasırcı\\ YZM5110 Research Project\\
+\small Repository: \url{\repourl}}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\input{sections/abstract.tex}
+\input{sections/intro.tex}
+\input{sections/lit.tex}
+\input{sections/method.tex}
+\input{sections/repro.tex}
+\input{sections/improve.tex}
+\input{sections/design.tex}
+\input{sections/results.tex}
+\input{sections/limits.tex}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\appendix
+\input{sections/appendix.tex}
+\end{document}

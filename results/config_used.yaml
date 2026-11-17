@@ -1,0 +1,65 @@
+seed: 0
+data_dir: data
+results_dir: results
+checkpoint_dir: checkpoints
+esc50_url: https://github.com/karolpiczak/ESC-50/archive/master.zip
+checkpoint_url: https://huggingface.co/lukewys/laion_clap/resolve/main/{name}.pt
+sample_rate: 48000
+clip_seconds: 5
+reproduction:
+  checkpoints:
+  - 630k-best
+  - 630k-audioset-best
+  - 630k-fusion-best
+  - 630k-audioset-fusion-best
+  templates:
+  - This is a sound of {}.
+  - This a sound of {}.
+  - '{}'
+main_checkpoint: 630k-audioset-best
+main_template: This is a sound of {}.
+noise:
+  test_types:
+  - white
+  - pink
+  - brown
+  test_snrs_db:
+  - 20
+  - 10
+  - 5
+  - 0
+  aug_type: white
+  aug_snr_range_db:
+  - 0
+  - 20
+fewshot:
+  shots:
+  - 1
+  - 4
+  - 16
+  seeds:
+  - 0
+  - 1
+  - 2
+  zs_logit_scale: 100
+  tip_alpha:
+  - 0.25
+  - 0.5
+  - 1.0
+  - 2.0
+  - 4.0
+  tip_beta:
+  - 1.0
+  - 3.0
+  - 5.5
+  - 7.0
+  - 10.0
+  lp_C:
+  - 0.01
+  - 0.1
+  - 1.0
+  - 10.0
+  - 100.0
+embed:
+  batch_size: 32
+  latency_clips: 100

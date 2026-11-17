@@ -1,0 +1,22 @@
+{
+  "630k-best": {
+    "file": "630k-best.pt",
+    "bytes": 1863587645,
+    "sha256": "e02951eae3c9955db546c50086059e6457188ec39446858f2bddbcb4b56b1cb3"
+  },
+  "630k-audioset-best": {
+    "file": "630k-audioset-best.pt",
+    "bytes": 1863587645,
+    "sha256": "8053c9775516af2f4902e1e8281e356cc1bf7a85e8b761908170767b77c3f037"
+  },
+  "630k-fusion-best": {
+    "file": "630k-fusion-best.pt",
+    "bytes": 1863894120,
+    "sha256": "28f414e007dd772a8cfb86899c8eb8e84ca0691cb68bd66fc5610a650a965600"
+  },
+  "630k-audioset-fusion-best": {
+    "file": "630k-audioset-fusion-best.pt",
+    "bytes": 1863889051,
+    "sha256": "fb171dd9b608aebdac3d89286cd7615c5100af4cc7dc37797c7fb8d3cc15e3a5"
+  }
+}

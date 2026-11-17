@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-11-17 17:58:22",
+  "command": "run_all.py --stage all",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "device": "cuda:0",
+  "packages": {
+    "torch": "2.5.1+cu121",
+    "torchaudio": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "laion_clap": "1.1.7",
+    "transformers": "4.44.2",
+    "numpy": "1.26.4",
+    "librosa": "0.10.2.post1",
+    "scikit-learn": "1.5.2",
+    "scipy": "1.14.1",
+    "pandas": "2.2.3",
+    "matplotlib": "3.9.2",
+    "soundfile": "0.14.0",
+    "torchlibrosa": "0.1.0"
+  },
+  "cuda_available": true,
+  "cuda_version": "12.1",
+  "gpu": "NVIDIA GeForce RTX 3080",
+  "git_commit": "f6482569f247473dc170177a2f56b22b32b3a56c",
+  "git_dirty": true
+}

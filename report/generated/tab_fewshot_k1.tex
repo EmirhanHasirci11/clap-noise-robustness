@@ -1,0 +1,13 @@
+\begin{tabular}{lrrrrrrrrrrrrrr}
+\toprule
+ & & \multicolumn{4}{c}{white (dB)} & \multicolumn{4}{c}{pink (dB)} & \multicolumn{4}{c}{brown (dB)} & \\
+Method & Clean & 20 & 10 & 5 & 0 & 20 & 10 & 5 & 0 & 20 & 10 & 5 & 0 & Noisy avg \\
+\midrule
+Zero-shot & 92.3 & 90.8 & 86.5 & 80.2 & 66.4 & 91.3 & 87.1 & 81.9 & 68.8 & 92.3 & 93.0 & 92.8 & 92.5 & 85.3 \\
+Tip (clean cache) & 92.8 & 91.1 & 86.8 & 80.6 & 66.7 & 91.7 & 87.3 & 82.1 & 69.1 & 92.7 & 93.2 & 93.0 & 92.9 & 85.6 \\
+Tip (clean+noisy) \textbf{[ours]} & \textbf{93.0} & \textbf{91.5} & \textbf{87.4} & \textbf{81.2} & 67.7 & \textbf{91.9} & \textbf{87.7} & \textbf{82.5} & \textbf{70.1} & \textbf{93.0} & \textbf{93.4} & \textbf{93.2} & \textbf{93.1} & 86.1 \\
+Tip (noisy only) & 92.8 & 91.1 & 87.0 & 80.9 & 67.2 & 91.7 & 87.5 & 82.2 & 69.4 & 92.8 & 93.2 & 93.0 & 92.8 & 85.7 \\
+LP (clean) & 87.1 & 84.7 & 78.7 & 71.6 & 60.0 & 86.1 & 80.2 & 73.3 & 60.0 & 87.6 & 87.4 & 87.3 & 87.2 & 78.7 \\
+LP (clean+noisy) & 87.7 & 86.5 & 82.3 & 77.8 & \textbf{68.9} & 86.9 & 83.4 & 79.3 & 69.6 & 87.4 & 87.4 & 87.8 & 87.6 & 82.1 \\
+\bottomrule
+\end{tabular}

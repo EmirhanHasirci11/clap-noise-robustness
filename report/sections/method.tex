@@ -1,0 +1,42 @@
+\section{Technical explanation of LAION-CLAP and the cache adapter}
+\label{sec:method}
+
+\paragraph{Architecture [Reported].}
+LAION-CLAP~\cite{wu2023laionclap} has two towers. The audio tower in the released checkpoints is HTSAT-tiny, a Swin-style transformer on
+64-bin log-mel spectrograms of 48\,kHz mono audio (window 1024, hop 480) with a 10\,s input window. The text tower is RoBERTa-base.
+Each tower is followed by a two-layer MLP that projects to a shared 512-dimensional space, and both outputs are $\ell_2$-normalised:
+\[
+  \mathbf{a}_i = \frac{\mathrm{MLP}_a(f_{\text{audio}}(x_i))}{\lVert\cdot\rVert}, \qquad
+  \mathbf{t}_j = \frac{\mathrm{MLP}_t(f_{\text{text}}(y_j))}{\lVert\cdot\rVert}.
+\]
+
+\paragraph{Objective [Reported].}
+For a batch of $N$ audio-caption pairs the model minimises the symmetric contrastive (InfoNCE) loss with a learnable temperature $\tau$:
+\[
+  \mathcal{L} = -\frac{1}{2N}\sum_{i=1}^{N}\left[
+  \log\frac{\exp(\mathbf{a}_i^\top\mathbf{t}_i/\tau)}{\sum_{j}\exp(\mathbf{a}_i^\top\mathbf{t}_j/\tau)} +
+  \log\frac{\exp(\mathbf{t}_i^\top\mathbf{a}_i/\tau)}{\sum_{j}\exp(\mathbf{t}_i^\top\mathbf{a}_j/\tau)}\right].
+\]
+The only training signal is which caption belongs to which clip; no class labels are used directly.
+Label-only data (AudioSet) is turned into captions by a T5 keyword-to-caption model (K2C augmentation).
+
+\paragraph{Feature fusion [Reported + code reading].}
+For clips longer than 10\,s the fusion model combines a down-sampled global view with three random 10\,s local views through attentional feature fusion.
+Clips of at most 10\,s are repeated and padded to 10\,s. Reading the released code (\texttt{laion\_clap/clap\_module/htsat.py}, \texttt{forward}),
+in evaluation mode, when no clip in the batch is longer than 10\,s, the fusion module is skipped entirely and only the global view is used.
+ESC-50 clips are 5\,s, so on this benchmark a fusion checkpoint differs from a non-fusion checkpoint only through its weights, not through the fusion mechanism.
+
+\paragraph{Zero-shot classification.}
+Each class name $c$ is inserted into a prompt (e.g.\ ``This is a sound of dog.'') and encoded to $\mathbf{t}_c$.
+A clip is assigned to $\hat y = \arg\max_c \mathbf{a}^\top\mathbf{t}_c$. In matrix form the zero-shot logits are $s\,\mathbf{a}W^\top$ with
+$W=[\mathbf{t}_1;\dots;\mathbf{t}_C]$ and scale $s=100$ (the scale does not change the zero-shot prediction, but it sets the balance with the cache term below).
+
+\paragraph{Training-free cache (Tip-Adapter) [Reported, transferred to audio].}
+Given $K$ labelled support clips per class, their embeddings form keys $F\in\mathbb{R}^{CK\times 512}$ and their one-hot labels form values
+$L\in\{0,1\}^{CK\times C}$. Following Tip-Adapter~\cite{zhang2022tip},
+\[
+  \text{logits}(\mathbf{a}) = s\,\mathbf{a}W^\top + \alpha\,\exp\!\big(-\beta(1-\mathbf{a}F^\top)\big)L .
+\]
+The second term is a soft nearest-neighbour vote: each support clip votes for its class with a weight that decays with cosine distance
+($\beta$ controls how fast), and $\alpha$ sets how much the vote can override the text prior. Nothing is trained; $\alpha$ and $\beta$ are chosen on a validation fold.
+The Treff adapter~\cite{liang2023treff} applies the same idea to a CLAP model with a learned cross-attention instead of a fixed kernel.

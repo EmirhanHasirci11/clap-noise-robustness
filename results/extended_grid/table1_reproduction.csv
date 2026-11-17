@@ -1,0 +1,13 @@
+checkpoint,template,acc_all,acc_fold_mean,acc_fold_std,fold1_R@1,fold1_R@5,README fold-1 R@1
+630k-best,This is a sound of {}.,90.95,90.95,0.69372184627558,91.5,99.5,
+630k-best,This a sound of {}.,91.05,91.05,1.26737918556366,92.5,99.75,
+630k-best,{},84.89999999999999,84.89999999999999,2.67861904719577,85.75,96.75,
+630k-audioset-best,This is a sound of {}.,92.30000000000001,92.30000000000001,1.20415945787923,93.25,100.0,92.75
+630k-audioset-best,This a sound of {}.,91.35,91.35,1.0246950765959602,92.25,100.0,
+630k-audioset-best,{},82.05,82.05,2.0493901531919203,82.75,94.75,
+630k-fusion-best,This is a sound of {}.,91.5,91.5,1.0,91.75,99.25,
+630k-fusion-best,This a sound of {}.,91.95,91.95,1.5751984002023298,91.0,99.5,
+630k-fusion-best,{},83.0,83.0,1.51038074669931,85.0,95.5,
+630k-audioset-fusion-best,This is a sound of {}.,90.8,90.79999999999998,1.6992645467966399,92.75,99.25,90.5
+630k-audioset-fusion-best,This a sound of {}.,88.3,88.3,1.86581081570452,90.25,99.0,
+630k-audioset-fusion-best,{},85.2,85.2,2.31435736220662,87.75,95.0,

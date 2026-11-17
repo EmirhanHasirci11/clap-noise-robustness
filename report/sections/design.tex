@@ -1,0 +1,27 @@
+\section{Experimental design}
+\label{sec:design}
+
+\paragraph{Dataset and splits.}
+ESC-50~\cite{piczak2015esc}: 2000 five-second clips, 50 balanced classes, five official folds (clips from the same source recording stay in one fold).
+For every test fold $f$ the validation fold is $v=(f \bmod 5)+1$ and the support pool is the other three folds (24 clips per class).
+From the pool I draw $K\in\{1,4,16\}$ clips per class with three seeds, giving $5\times3=15$ runs per setting. Test clips never enter a cache or a probe.
+
+\paragraph{Corruptions.}
+White, pink ($1/f$) and brown ($1/f^2$) Gaussian noise at 20, 10, 5 and 0\,dB SNR, i.e.\ 12 noisy conditions plus clean.
+SNR is the power ratio over the whole 5\,s clip; mixtures that would clip are scaled down as a whole, which keeps the SNR.
+Noise is a deterministic function of (clip, condition) with a seed space disjoint from the cache-augmentation noise, so all methods see identical test inputs.
+Only white noise is used to build the noisy cache; pink and brown noise test generalisation to unseen noise.
+
+\paragraph{Model selection without the test set.}
+$\alpha\in\{0.25,0.5,1,2,4\}$ and $\beta\in\{1,3,5.5,7,10\}$ for the caches and $C\in\{0.01,\dots,100\}$ for the probes are chosen by accuracy on the \emph{clean}
+validation fold. No noisy data and no test fold are used for any choice, so robustness numbers are not tuned to the corruption.
+
+\paragraph{Metrics and uncertainty.}
+Top-1 accuracy per test fold. I report the mean and standard deviation over the 15 runs (zero-shot: over 5 folds).
+To compare two methods I use paired differences on the same (fold, seed, support set), first averaged over the SNRs of one noise type,
+and give a 95\% $t$ interval across runs together with how many runs improved or got worse. Folds and seeds are not fully independent, so the intervals are approximate.
+
+\paragraph{Resources.}
+Audio-encoder latency at batch size 1 (median of 100 clips), throughput at batch size 32, and peak GPU memory (\texttt{torch.cuda.max\_memory\_allocated});
+for the adapters: cache size, tuning time and inference time per clip on the CPU.
+Hardware: one NVIDIA RTX 3080 (10\,GB), 32\,GB RAM, Windows; exact versions in \texttt{results/environment.json}.

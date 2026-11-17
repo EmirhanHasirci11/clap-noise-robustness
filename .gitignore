@@ -1,0 +1,15 @@
+data/
+checkpoints/
+.venv/
+results_smoke/
+__pycache__/
+*.pyc
+*.part
+report/*.aux
+report/*.log
+report/*.bbl
+report/*.blg
+report/*.fls
+report/*.fdb_latexmk
+report/*.out
+report/report.pdf

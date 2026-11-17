@@ -1,0 +1,25 @@
+\begin{tabular}{lrrrrrr}
+\toprule
+Method & $K$ & Clean & White avg & Pink avg & Brown avg & Noisy avg \\
+\midrule
+Zero-shot & -- & 92.3 & 81.0 & 82.3 & 92.7 & 85.3 \\
+\midrule
+Tip (clean cache) & 1 & 94.2 & 83.1 & 83.9 & 94.1 & 87.1 \\
+Tip (clean+noisy) \textbf{[ours]} & 1 & \textbf{94.3} & \textbf{84.9} & \textbf{85.4} & \textbf{94.3} & \textbf{88.2} \\
+Tip (noisy only) & 1 & 93.7 & 84.8 & 85.3 & 93.6 & 87.9 \\
+LP (clean) & 1 & 87.1 & 73.8 & 74.9 & 87.4 & 78.7 \\
+LP (clean+noisy) & 1 & 87.7 & 78.9 & 79.8 & 87.6 & 82.1 \\
+\midrule
+Tip (clean cache) & 4 & 95.3 & 85.1 & 85.4 & 95.3 & 88.6 \\
+Tip (clean+noisy) \textbf{[ours]} & 4 & 95.4 & 87.9 & 87.9 & 95.4 & 90.4 \\
+Tip (noisy only) & 4 & 95.2 & 88.2 & 88.2 & 95.2 & 90.5 \\
+LP (clean) & 4 & \textbf{95.7} & 83.8 & 84.5 & 95.4 & 87.9 \\
+LP (clean+noisy) & 4 & 95.5 & \textbf{89.0} & \textbf{88.9} & \textbf{95.5} & \textbf{91.1} \\
+\midrule
+Tip (clean cache) & 16 & 96.1 & 85.8 & 86.1 & 96.2 & 89.4 \\
+Tip (clean+noisy) \textbf{[ours]} & 16 & 96.1 & 89.3 & 89.3 & 96.3 & 91.6 \\
+Tip (noisy only) & 16 & 95.2 & 89.1 & 89.6 & 95.3 & 91.3 \\
+LP (clean) & 16 & \textbf{97.3} & 85.1 & 85.9 & 97.0 & 89.3 \\
+LP (clean+noisy) & 16 & 97.2 & \textbf{91.3} & \textbf{91.0} & \textbf{97.1} & \textbf{93.1} \\
+\bottomrule
+\end{tabular}
