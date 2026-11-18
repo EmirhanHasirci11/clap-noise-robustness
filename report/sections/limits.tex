@@ -13,7 +13,7 @@
 \end{itemize}
 
 \paragraph{Conclusions.}
-(1) The released LAION-CLAP checkpoints reproduce, and slightly exceed, the paper's ESC-50 zero-shot accuracy (\repbestA--\repaudiosetA\% vs.\ 88.0--91.0\%), but the result moves by several points with the prompt and by about two points with the evaluation pipeline.
+(1) The released LAION-CLAP checkpoints reproduce, and slightly exceed, the paper's ESC-50 zero-shot accuracy (\repaudiosetfusionA--\repaudiosetA\% vs.\ 88.0--91.0\%), but the result moves by several points with the prompt and by about two points with the evaluation pipeline.
 (2) Feature fusion cannot matter on ESC-50 because the code bypasses it for clips of 10\,s or less; the measured differences between fusion and non-fusion checkpoints are within fold noise.
 (3) Zero-shot CLAP loses about 25 points at 0\,dB white or pink noise and collapses onto noise-like classes.
 (4) Adding noise-augmented copies of the support clips to a Tip-Adapter cache improves noisy accuracy over a clean cache by about 2--3.5 points at $K{=}16$, also for a noise colour that was not used to build the cache, with no measurable clean-accuracy cost and negligible run-time cost.

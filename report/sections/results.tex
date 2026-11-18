@@ -16,7 +16,7 @@ the README gives fold-1 R@1 of 92.75 for \texttt{630k-audioset-best} and 90.50 f
 \end{table}
 
 \paragraph{E1 (accuracy level): confirmed.}
-With the README prompt the four checkpoints reach \repbestA--\repaudiosetA\% on all 2000 clips, at or above the paper's 88.0--91.0\%.
+With the README prompt the four checkpoints reach \repaudiosetfusionA--\repaudiosetA\% on all 2000 clips, at or above the paper's 88.0--91.0\%.
 For the pip default \texttt{630k-audioset-best}, fold-1 R@1 is \repfoldaudiosetA\% against 92.75\% in the README, a difference of one or two clips out of 400.
 For the fusion default the gap is larger (\repfoldaudiosetfusionA\% vs.\ 90.50\%, 9 clips). I could not explain it: the checkpoint hash, package version and prompt are fixed,
 and fusion is bypassed for 5\,s clips, so the remaining suspects are the authors' FLAC/webdataset pre-processing and the exact clip list of their ``first split''.

@@ -1,0 +1,24 @@
+\section{Code}
+\label{app:code}
+The listings below are the core of the method, included directly from the submitted repository (\texttt{src/}), so they always match the code that produced the results.
+Data download and resampling, checkpoint download, plotting and table generation are in the repository and are not reproduced here.
+
+\lstset{language=Python, basicstyle=\ttfamily\scriptsize, keywordstyle=\bfseries\color{blue!55!black},
+  commentstyle=\itshape\color{green!35!black}, stringstyle=\color{red!50!black}, numbers=left, numberstyle=\tiny\color{gray},
+  frame=single, breaklines=true, showstringspaces=false, columns=fullflexible, upquote=true}
+
+\subsection{Noise generation and SNR mixing (\texttt{src/noise.py})}
+Generates white, pink and brown noise, mixes it into a clip at a given SNR, and makes the test noise and the cache-augmentation noise deterministic and disjoint.
+\lstinputlisting{../src/noise.py}
+
+\subsection{Zero-shot classifier, Tip-Adapter cache and linear probe (\texttt{src/fewshot.py})}
+The three classifiers compared in Section~\ref{sec:results}, support-set sampling, and hyper-parameter selection on the clean validation fold.
+\lstinputlisting{../src/fewshot.py}
+
+\subsection{Audio embedding with optional corruption (\texttt{src/embed.py}, lines 54--72)}
+Embeds every clip with the frozen LAION-CLAP audio encoder; the \texttt{transform} argument adds test noise or augmentation noise before encoding.
+\lstinputlisting[firstline=54, lastline=72, firstnumber=54]{../src/embed.py}
+
+\subsection{Few-shot experiment loop (\texttt{src/evaluate.py}, lines 62--147)}
+For each test fold, seed and $K$: samples the support set, builds the clean, clean+noisy and noisy-only caches and the two probes, tunes them on the clean validation fold, and evaluates all 13 conditions.
+\lstinputlisting[firstline=62, lastline=147, firstnumber=62]{../src/evaluate.py}
