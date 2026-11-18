@@ -127,8 +127,7 @@ results/                committed outputs of the reported run (environment.json 
 
 ## AI-use disclosure
 
-Claude (Anthropic) was used to help select the paper, write and test the experiment code, and draft the report text.
-The author ran the experiments, checked the outputs and is responsible for all claims.
+I selected the reproduced paper and the reviewed literature. Claude (Anthropic) was used to search for and summarise related work, write and test the experiment code, and determine the flow of the report, as well as create the charts and tables placed while I wrote the text. I ran the experiments, checked the outputs, and am responsible for all claims.
 
 ## Citation
 

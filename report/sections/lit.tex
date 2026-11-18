@@ -3,20 +3,18 @@
 
 \paragraph{Search approach.}
 I started from the reproduced paper, LAION-CLAP~\cite{wu2023laionclap}, and searched in two directions.
-\emph{Backward:} every system that LAION-CLAP compares against in its ESC-50 zero-shot table
-(Wav2CLIP~\cite{wu2022wav2clip}, AudioCLIP~\cite{guzhov2022audioclip}, Microsoft CLAP~\cite{elizalde2023clap})
-and the image-text model all of them build on, CLIP~\cite{radford2021clip}.
+\emph{Backward:} the strongest competing model in LAION-CLAP's ESC-50 zero-shot table, Microsoft CLAP~\cite{elizalde2023clap},
+and the image-text model that both build on, CLIP~\cite{radford2021clip}.
 \emph{Forward:} Google Scholar and arXiv queries for papers that adapt a frozen language-audio model with a few labelled clips
 (``CLAP few-shot'', ``training-free adapter audio-language'', ``Tip-Adapter audio''). This led to the
 Treff adapter~\cite{liang2023treff}, which in turn uses Tip-Adapter~\cite{zhang2022tip} as its main baseline, so Tip-Adapter was added.
-\emph{Recent work (2024--2026):} a second round of arXiv and Google Scholar queries restricted to 2024 onwards
-(``audio-language model noise robustness'', ``CLAP test-time adaptation'', ``few-shot prompt learning audio language model'')
-added four papers that build on CLAP-style models: a competing labelled few-shot method (PALM~\cite{hanif2024palm}),
-two label-free alternatives (PAT~\cite{seth2024pat}, consistency-guided test-time adaptation~\cite{chen2024mctta}),
+\emph{Recent work (2024--2026):} a second round of queries restricted to 2024 onwards
+(``audio-language model noise robustness'', ``few-shot prompt learning audio language model'')
+added a competing labelled few-shot method (PALM~\cite{hanif2024palm})
 and the only paper I found that targets the same problem as my project, noise robustness of zero-shot audio-language classification (DAS~\cite{vo2026das}).
-Inclusion criteria: (i) the paper introduces a language-audio model or adaptation method evaluated on ESC-50, or a mechanism I use; (ii) the full text is public.
-I excluded music-only models and captioning/generation models to keep the review deep rather than wide
-within the two-week budget. Eleven papers are analysed; numbers in the matrix are the authors' reported numbers, not mine.
+Inclusion criteria: (i) the paper introduces a language-audio model or adaptation method evaluated on ESC-50, or a mechanism I use; (ii) the full text is public; (iii) it bears directly on my question.
+I left out earlier audio models that only borrow CLIP's space indirectly (through video frames or label text), label-free test-time methods, music-only models and captioning/generation models,
+to keep the review deep rather than wide within the two-week budget. Seven papers are analysed; numbers in the matrix are the authors' reported numbers, not mine.
 
 \paragraph{Notation used in this report.}
 \textbf{[Reported]} marks a number or claim from a paper or its official repository,
@@ -27,7 +25,7 @@ within the two-week budget. Eleven papers are analysed; numbers in the matrix ar
 \begin{table}
 \centering
 \scriptsize
-\caption{Comparison matrix (one row per paper), part 1: the foundation model and earlier audio-text models. All accuracies are \textbf{[Reported]} by the authors. ZS = zero-shot, LP = linear probe.}
+\caption{Comparison matrix (one row per paper), part 1: the foundation model, the competing audio-text model and the reproduced paper. All accuracies are \textbf{[Reported]} by the authors. ZS = zero-shot, LP = linear probe.}
 \label{tab:matrix}
 \renewcommand{\arraystretch}{1.15}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.75cm}*{7}{>{\raggedright\arraybackslash}X}@{}}
@@ -41,25 +39,7 @@ Two encoders (ResNet/ViT, Transformer); symmetric InfoNCE over a batch with lear
 WIT (400M pairs, not released); 30+ downstream datasets; prompt templates and ensembling; LP on frozen features. &
 Strong: compares with supervised ImageNet models and LP baselines on many datasets, studies distribution shift. Zero-shot roughly matches a 4-shot LP on average. &
 Weights and inference code released; training data and training code not. Largest models trained on 256--592 V100 GPUs for 12--18 days. &
-Fails on fine-grained and abstract tasks; very few-shot LP can be worse than zero-shot. Template for every audio model below. \\
-\midrule
-Wav2CLIP~\cite{wu2022wav2clip} (ICASSP 2022) &
-Can audio be put into CLIP space without any text? New: distil CLIP image embeddings into an audio encoder. &
-Video (audio + frames) at training, no text; text enters only through the frozen CLIP text tower at test. &
-ResNet-18 audio encoder trained with a contrastive loss to match the frozen CLIP image embedding of the same video. &
-VGGSound ($\approx$200k 10\,s clips); evaluated on ESC-50, UrbanSound8K, etc.\ with ZS, LP and retrieval. &
-ESC-50 ZS 41.4\%, LP 86.0\%. Good LP shows useful features; weak ZS shows image-mediated alignment is loose. &
-Code and weights released; single, small encoder, cheap to run. &
-Text alignment is indirect (via images), so ZS is the weakest in the table. First step towards CLIP-style audio. \\
-\midrule
-AudioCLIP~\cite{guzhov2022audioclip} (ICASSP 2022) &
-Extend CLIP to a third modality. New: tri-modal (image, text, audio) training. &
-Audio + image + class-label text at training; any pair at test. &
-ESResNeXt audio head added to frozen/partially tuned CLIP; contrastive losses between all modality pairs. &
-AudioSet (labels used as text); ESC-50 and UrbanSound8K, ZS and fine-tuned. &
-ESC-50 ZS 69.4\%; fine-tuned 97.2\%. Ablations on which towers are trained. &
-Code released. &
-Text is only label names, so language is narrow. Bridge between Wav2CLIP and true audio-caption training. \\
+Fails on fine-grained and abstract tasks; very few-shot LP can be worse than zero-shot. Template for the audio models below. \\
 \midrule
 Microsoft CLAP~\cite{elizalde2023clap} (ICASSP 2023) &
 Learn audio concepts directly from audio-caption pairs. New: CLIP recipe with audio and captions. &
@@ -69,16 +49,6 @@ CNN14 audio encoder, BERT text encoder, linear projections, symmetric contrastiv
 ESC-50 ZS 82.6\%; prompt study shows template sensitivity. &
 Code released; training uses public datasets. &
 Training data shares the Freesound source with ESC-50; LAION-CLAP later lists FSD50K clips that overlap ESC-50, which makes leakage a real concern. \\
-\bottomrule
-\end{tabularx}
-\end{table}
-\begin{table}
-\centering
-\scriptsize
-\caption*{\textbf{Table~\ref{tab:matrix} (continued).} The reproduced paper and the two few-shot adaptation papers.}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.75cm}*{7}{>{\raggedright\arraybackslash}X}@{}}
-\toprule
-Paper & Question and contribution & Modalities and assumptions & Mechanism and objective & Data and protocol & Baselines and evidence & Resources and reproducibility & Limitations and connections \\
 \midrule
 \textbf{LAION-CLAP}~\cite{wu2023laionclap} (ICASSP 2023), \textbf{reproduced} &
 Scale CLAP and handle variable-length audio. New: LAION-Audio-630K, feature fusion, keyword-to-caption (K2C) augmentation. &
@@ -87,7 +57,17 @@ HTSAT or PANN audio encoder, RoBERTa/BERT/CLIP text encoder, 2-layer MLP to 512-
 633,526 pairs (4,325\,h) + AudioSet with K2C captions; overlapping clips removed from ESC-50 before ZS evaluation. Prompt ``This a sound of label.''. &
 ESC-50 ZS: CLAP 89.1, +Fusion 88.0, +K2C 91.0\%. Mapping of these rows to released checkpoints is not stated. Fusion mainly helps long-audio retrieval (Clotho). &
 Code, pip package and 4 general checkpoints released; dataset released as links only. GPU type/count not stated. &
-Robustness to noisy input not evaluated; no few-shot adaptation. Strongest ZS in the table, so it is my baseline. \\
+Robustness to noisy input not evaluated; no few-shot adaptation. Strongest open zero-shot model at the time, so it is my baseline. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\begin{table}
+\centering
+\scriptsize
+\caption*{\textbf{Table~\ref{tab:matrix} (continued).} Few-shot adaptation and noise robustness of CLAP-style models.}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.75cm}*{7}{>{\raggedright\arraybackslash}X}@{}}
+\toprule
+Paper & Question and contribution & Modalities and assumptions & Mechanism and objective & Data and protocol & Baselines and evidence & Resources and reproducibility & Limitations and connections \\
 \midrule
 Tip-Adapter~\cite{zhang2022tip} (ECCV 2022) &
 Few-shot adaptation of CLIP without training. New: key-value cache of few-shot features added to zero-shot logits. &
@@ -106,16 +86,6 @@ ESC-50, FSDKaggle2018, FSD-FS; 16-shot main setting. &
 ESC-50 16-shot: CLAP ZS 82.6, training-free Treff 87.75, Tip-Adapter (tuned) 91.45, Treff tuned 92.21\%. &
 Code ``to be released''; I could not find it. &
 Built on a CLAP model with ESC-50 ZS 82.6 (the Microsoft CLAP figure); clean support and clean test only. Closest prior work to my improvement. \\
-\bottomrule
-\end{tabularx}
-\end{table}
-\begin{table}
-\centering
-\scriptsize
-\caption*{\textbf{Table~\ref{tab:matrix} (continued).} Recent work that builds on CLAP-style models (2024--2026): competing adaptation methods and noise robustness.}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.75cm}*{7}{>{\raggedright\arraybackslash}X}@{}}
-\toprule
-Paper & Question and contribution & Modalities and assumptions & Mechanism and objective & Data and protocol & Baselines and evidence & Resources and reproducibility & Limitations and connections \\
 \midrule
 PALM~\cite{hanif2024palm} (EMNLP 2024) &
 Does prompt learning (CoOp-style) work for audio-language models? New: learn a per-class offset in the text-feature space instead of input tokens. &
@@ -125,24 +95,6 @@ Pengi backbone; 11 datasets incl.\ ESC-50 (5-fold); 3 seeds. &
 ESC-50: zero-shot 49.65, CoOp 93.82, CoCoOp 94.27, PALM 95.93\%. No Tip-Adapter comparison. &
 Project page and code released. &
 Authors list noise robustness as future work. Competing labelled few-shot method to the cache I use; needs gradient training. \\
-\midrule
-PAT~\cite{seth2024pat} (arXiv 2024) &
-Can zero-shot audio classification be improved without any training or labels? New: weighted prompt ensembles plus parameter-free audio-text attention. &
-Frozen CLAP-style model; no labelled audio; two mixing weights chosen per dataset. &
-$L = L_{\text{pred}} + \beta_1 L_{\text{audio}} + \beta_2 L_{\text{text}}$ from an attention map between frame-level audio and text features. &
-6 backbones incl.\ LAION-CLAP and MS-CLAP; 18 datasets incl.\ ESC-50; robustness test with audio augmentations. &
-ESC-50 LAION-CLAP 89.00 $\to$ 93.00\%; with Gaussian noise (MS-CLAP-23) 91.80 $\to$ 94.20\%. No SNR levels given. &
-Code link given in a footnote. &
-Noise is an augmentation test without controlled SNR; no labelled shots. Shows a label-free route to the same zero-shot gains. \\
-\midrule
-Consistency-guided TTA~\cite{chen2024mctta} (arXiv 2024) &
-Can a CLAP model adapt at test time with unlabelled audio? New: context- and domain-aware prompt generators trained by consistency losses. &
-Frozen CLAP; unlabelled test audio, small batches; no labels. &
-Self-entropy over augmented views plus a contrastive consistency term across test samples. &
-12 datasets incl.\ ESC-50; augmentations are spectrogram masking, not noise. &
-ESC-50 zero-shot 93.90 $\to$ 94.65\%; 12-task average 62.93 $\to$ 68.83\%. &
-Code not stated. &
-Not evaluated under noise. Small gain on ESC-50 (+0.75), larger on other datasets; an unlabelled alternative to my labelled cache. \\
 \midrule
 DAS~\cite{vo2026das} (ICML 2026 audio workshop) &
 Why does zero-shot CLAP fail under acoustic noise, and can text alone fix it? New: class-wise ``drift'' directions from noisy vs.\ clean prompts. &
@@ -158,23 +110,20 @@ Closest to my question, but zero-shot only: no labelled shots, no cache. My work
 \end{landscape}
 
 \paragraph{Synthesis.}
-\textbf{[Interpretation]} The first seven papers form one line of development.
-CLIP established the recipe (two towers, contrastive loss, prompts as classifiers).
-Audio work first borrowed CLIP's space indirectly (Wav2CLIP through images, AudioCLIP through labels),
-then trained on real audio captions (Microsoft CLAP), and LAION-CLAP scaled the data and added mechanisms for long audio and
-label-only data. The ESC-50 zero-shot numbers climb from 41.4 to 91.0\%, but three issues limit how much of that climb can be attributed to method:
+\textbf{[Interpretation]} CLIP established the recipe that every model here follows: two towers, a contrastive loss, and prompts as classifiers.
+Microsoft CLAP transferred it to audio-caption pairs (82.6\% ESC-50 zero-shot), and LAION-CLAP scaled the data and added mechanisms for long audio and
+label-only data (88.0--91.0\%). Three issues limit how much of that improvement can be attributed to method:
 (1) training sets and ESC-50 share the Freesound source, and only LAION-CLAP documents overlap removal;
 (2) prompt wording changes zero-shot accuracy, and the prompts differ between papers (LAION-CLAP prints a prompt with a typo);
 (3) LAION-CLAP's table does not say which released checkpoint produced which row.
 These motivate my reproduction design: several checkpoints, several prompts, all 2000 clips and the official fold-1 split.
 
-On the adaptation side the recent work splits by what it needs at deployment.
-\emph{Labelled few-shot} methods either keep the model frozen and add a cache (Tip-Adapter, Treff) or train a small set of parameters (PALM); both add several points with 16 clips per class.
-\emph{Label-free} methods improve zero-shot scoring from text alone (PAT, DAS) or from unlabelled test audio (consistency-guided TTA).
-Only DAS studies controlled background noise, and it reports the same order of degradation I measure (12--30 points at 0\,dB, Section~\ref{sec:results}); PAT's Gaussian-noise test has no stated SNR.
+On the adaptation side, the labelled few-shot methods either keep the model frozen and add a cache (Tip-Adapter, Treff) or train a small set of parameters (PALM); both add several points with 16 clips per class.
+DAS is the only paper here that studies controlled background noise. It uses no labelled audio and corrects zero-shot scores with a direction derived from text,
+and it reports the same order of degradation I measure (12--30 points at 0\,dB, Section~\ref{sec:results}).
 
 \textbf{Research gap.} Every labelled few-shot method in this review (Tip-Adapter, Treff, PALM) builds its support set from clean recordings and is tested on clean recordings,
-and the noise-robustness work (DAS, PAT) uses no labelled clips at all.
+and the noise-robustness work (DAS) uses no labelled clips at all.
 No paper asks whether the few labelled clips themselves can be used to absorb noise.
 A cache is a natural place to do this: keys are just embeddings, so adding embeddings of noisy versions of the same support clips costs one extra forward pass per clip and no training.
-This is the question of Section~\ref{sec:improve}. The label-free methods are complementary rather than competing: DAS's text-derived drift could be combined with a noisy cache, which I leave open.
+This is the question of Section~\ref{sec:improve}. DAS is complementary rather than competing: its text-derived drift could be combined with a noisy cache, which I leave open.
